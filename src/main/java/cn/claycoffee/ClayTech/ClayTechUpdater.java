@@ -12,7 +12,7 @@ import java.io.*;
 import java.net.URL;
 
 public class ClayTechUpdater {
-    private ClayTech plugin = ClayTech.getInstance();
+    private final ClayTech plugin = ClayTech.getInstance();
     private ClayTechBranch branch;
 
     public ClayTechUpdater() {
@@ -55,9 +55,9 @@ public class ClayTechUpdater {
                                     Bukkit.getServer().getLogger().info("§a" + Lang.readGeneralText("Info_1"));
                                     Bukkit.getServer().getLogger()
                                             .info(Lang.readGeneralText("update_done")
-                                                    .replaceAll("\\{new_version\\}",
+                                                    .replaceAll("\\{new_version}",
                                                             ja.get(i).getAsJsonObject().get("tag_name").getAsString())
-                                                    .replaceAll("\\{old_version\\}",
+                                                    .replaceAll("\\{old_version}",
                                                             ClayTech.getInstance().getPluginVersion()));
                                     Bukkit.getServer().getLogger().info("§a" + Lang.readGeneralText("Info_6"));
                                     ClayTechData.currentVersion = ja.get(i).getAsJsonObject().get("tag_name")
@@ -88,21 +88,18 @@ public class ClayTechUpdater {
                                     Bukkit.getServer().getLogger().info("§a" + Lang.readGeneralText("Info_1"));
                                     Bukkit.getServer().getLogger()
                                             .info(Lang.readGeneralText("update_done")
-                                                    .replaceAll("\\{new_version\\}",
+                                                    .replaceAll("\\{new_version}",
                                                             ja.get(0).getAsJsonObject().get("tag_name").getAsString())
-                                                    .replaceAll("\\{old_version\\}",
+                                                    .replaceAll("\\{old_version}",
                                                             ClayTech.getInstance().getPluginVersion()));
                                     Bukkit.getServer().getLogger().info("§a" + Lang.readGeneralText("Info_6"));
                                     ClayTechData.currentVersion = ja.get(0).getAsJsonObject().get("tag_name")
                                             .getAsString();
-                                    return;
                                 }
                             } else {
                                 Bukkit.getServer().getLogger().info(Lang.readGeneralText("LatestVersion"));
-                                return;
                             }
-                        } else
-                            return;
+                        }
                     } else if (branch == ClayTechBranch.ALL) {
                         if (!ja.get(0).getAsJsonObject().get("tag_name").getAsString()
                                 .equalsIgnoreCase(ClayTechData.currentVersion)) {
@@ -121,25 +118,22 @@ public class ClayTechUpdater {
                                 Bukkit.getServer().getLogger().info("§a" + Lang.readGeneralText("Info_1"));
                                 Bukkit.getServer().getLogger()
                                         .info(Lang.readGeneralText("update_done")
-                                                .replaceAll("\\{new_version\\}",
+                                                .replaceAll("\\{new_version}",
                                                         ja.get(0).getAsJsonObject().get("tag_name").getAsString())
-                                                .replaceAll("\\{old_version\\}",
+                                                .replaceAll("\\{old_version}",
                                                         ClayTech.getInstance().getPluginVersion()));
                                 Bukkit.getServer().getLogger().info("§a" + Lang.readGeneralText("Info_6"));
                                 ClayTechData.currentVersion = ja.get(0).getAsJsonObject().get("tag_name")
                                         .getAsString();
-                                return;
                             }
                         } else {
                             Bukkit.getServer().getLogger().info(Lang.readGeneralText("LatestVersion"));
-                            return;
                         }
                     }
 
                 } catch (IOException e) {
                     Bukkit.getLogger().info("§cCould not perform update. Is the Github down?");
                     e.printStackTrace();
-                    return;
                 }
             }
 

@@ -40,11 +40,7 @@ public class ClayTechManager {
         if (item == null)
             return false;
         if (item.hasItemMeta()) {
-            if (item.getItemMeta().getDisplayName().startsWith(Lang.rocketPrefix)) {
-                return true;
-            } else {
-                return false;
-            }
+            return item.getItemMeta().getDisplayName().startsWith(Lang.readGeneralText("Rocket"));
         }
         return false;
     }
@@ -53,11 +49,7 @@ public class ClayTechManager {
         if (item == null)
             return false;
         if (item.hasItemMeta()) {
-            if (item.getItemMeta().getDisplayName().startsWith(Lang.spaceSuitPrefix)) {
-                return true;
-            } else {
-                return false;
-            }
+            return item.getItemMeta().getDisplayName().startsWith(Lang.readGeneralText("SpaceSuit"));
         }
         return false;
     }
@@ -66,11 +58,7 @@ public class ClayTechManager {
         if (item == null)
             return false;
         if (item.hasItemMeta()) {
-            if (item.getItemMeta().getDisplayName().startsWith(Lang.oxygenDistributerPrefix)) {
-                return true;
-            } else {
-                return false;
-            }
+            return item.getItemMeta().getDisplayName().startsWith(Lang.readGeneralText("OxygenDistributer"));
         }
         return false;
     }

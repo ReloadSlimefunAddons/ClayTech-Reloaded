@@ -2,13 +2,14 @@ package cn.claycoffee.ClayTech.utils;
 
 import cn.claycoffee.ClayTech.ClayTech;
 import cn.claycoffee.ClayTech.ClayTechItems;
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import io.github.thebusybiscuit.slimefun4.api.geo.GEOResource;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -19,8 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SlimefunUtils {
-    public static void registerArmors(Category category, String nameprefix, ItemStack[] ItemStack, String ResearchName,
-                                      int cost, RecipeType Recipetype, ItemStack MaterialStack, boolean registerResearch) {
+    public static void registerArmors(ItemGroup category, String nameprefix, ItemStack[] ItemStack,
+                                      RecipeType Recipetype, ItemStack MaterialStack) {
 
         SlimefunItemStack HELMET = new SlimefunItemStack(nameprefix + "_HELMET", ItemStack[0]);
         SlimefunItem HELMET_I = new SlimefunItem(category, HELMET, Recipetype, getArmorsStack(1, MaterialStack));
@@ -53,14 +54,14 @@ public class SlimefunUtils {
 
     public static void registerResource(GEOResource res) {
         res.register();
-        SlimefunPlugin.getRegistry().getGEOResources().add(res);
+        Slimefun.getRegistry().getGEOResources().add(res);
     }
 
     public static void doAirlock(Block plate, BlockFace face) {
         Block a1 = plate.getRelative(face);
         int waitTime = 5;
-        if (BlockStorage.getLocationInfo(plate.getLocation()) != null && BlockStorage.getLocationInfo(plate.getLocation()).getString("wait-time") != null)
-            waitTime = new Integer(BlockStorage.getLocationInfo(plate.getLocation()).getString("wait-time")).intValue();
+        if (StorageCacheUtils.hasBlock(plate.getLocation()) && StorageCacheUtils.getData(plate.getLocation(), "wait-time") != null)
+            waitTime = Integer.parseInt(StorageCacheUtils.getData(plate.getLocation(), "wait-time"));
         if (BlockStorage.checkID(a1) != null && BlockStorage.checkID(a1).equals("CLAY_AIR_LOCK_BLOCK")) {
             List<Block> block = new ArrayList<Block>();
             List<Block> blocks = new ArrayList<>();
@@ -150,5 +151,12 @@ public class SlimefunUtils {
             }
         }
 
+    }
+
+    public static void registerItem(ItemGroup category, String name, ItemStack[] recipe, RecipeType recipetype, ItemStack MaterialStack) {
+        SlimefunItemStack si = new SlimefunItemStack(name, MaterialStack);
+        SlimefunItem item = new SlimefunItem(category, si, recipetype, recipe);
+        category.add(item);
+        category.register(ClayTech.getInstance());
     }
 }

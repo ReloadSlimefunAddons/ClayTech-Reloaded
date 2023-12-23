@@ -3,17 +3,15 @@ package cn.claycoffee.ClayTech.implementation.items;
 import cn.claycoffee.ClayTech.ClayTech;
 import cn.claycoffee.ClayTech.ClayTechItems;
 import cn.claycoffee.ClayTech.implementation.machines.*;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 /**
- * @Project: ClayTech
- * @Author: ClayCoffee
- * @Date: 2020/7/20 11:33
- * @Email: 1020757140@qq.com
+ * &#064;project  ClayTech
+ * @author ClayCoffee
  * AGPL 3.0
  */
 
@@ -114,7 +112,7 @@ public class Machines {
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClayElementExtracter).register(ClayTech.getInstance());
         new ExperimentTableNormal(ClayTechItems.C_MACHINES, experimenttablebasic, "CLAY_EXPERIMENT_TABLE_BASIC",
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClayExperimentTableBasic).register(ClayTech.getInstance());
-        new RocketAssemblingMachine(ClayTechItems.C_MACHINES, rocketassemblingmachine, "CLAY_ROCKET_ASSEMBLING_MACHINE",
+        new RocketAssemblingMachine(ClayTechItems.C_MACHINES, rocketassemblingmachine,
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClayRocketAssemblingMachine).register(ClayTech.getInstance());
         new RocketFuelGenerator(ClayTechItems.C_MACHINES, rocketfuelgenerator, "CLAY_ROCKET_FUEL_GENERATOR",
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClayRocketFuelGenerator).register(ClayTech.getInstance());

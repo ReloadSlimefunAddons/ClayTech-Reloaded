@@ -3,14 +3,13 @@ package cn.claycoffee.ClayTech;
 import cn.claycoffee.ClayTech.utils.ItemUtil;
 import cn.claycoffee.ClayTech.utils.Lang;
 import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.groups.LockedItemGroup;
 import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier;
 import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType;
-import io.github.thebusybiscuit.slimefun4.core.categories.LockedCategory;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
-import me.mrCookieSlime.Slimefun.cscorelib2.skull.SkullItem;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
@@ -35,7 +34,7 @@ public class ClayTechItems {
     public static final SlimefunItemStack ARTIFICIAL_ENCHANTED_GOLDEN_APPLE = getSlimefunItemStack(Material.ENCHANTED_GOLDEN_APPLE,
             Lang.readItemText("ARTIFICIAL_ENCHANTED_GOLDEN_APPLE"), "ARTIFICIAL_ENCHANTED_GOLDEN_APPLE");
     public static final SlimefunItemStack BLIND_CORE = getSlimefunItemStack(Material.COAL, Lang.readItemText("BLIND_CORE"), "BLIND_CORE");
-    public static final SlimefunItemStack BLIND_SWORD = getSlimefunItemStack(SlimefunPlugin.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_16) ? Material.NETHERITE_SWORD : Material.DIAMOND_SWORD, Lang.readItemText("BLIND_SWORD"), Lang.readItemLore("BLIND_SWORD"), "BLIND_SWORD");
+    public static final SlimefunItemStack BLIND_SWORD = getSlimefunItemStack(Slimefun.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_16) ? Material.NETHERITE_SWORD : Material.DIAMOND_SWORD, Lang.readItemText("BLIND_SWORD"), Lang.readItemLore("BLIND_SWORD"), "BLIND_SWORD");
     public static final SlimefunItemStack CONFUSION_CORE = getSlimefunItemStack(Material.INK_SAC,
             Lang.readItemText("CONFUSION_CORE"), "CONFUSION_CORE");
     public static final SlimefunItemStack BLACK_ROCK_BLOCK = getSlimefunItemStack(Material.OBSIDIAN,
@@ -54,16 +53,14 @@ public class ClayTechItems {
     public static final SlimefunItemStack FOUR_BOW = getSlimefunItemStack(Material.BOW, Lang.readItemText("FOUR_BOW"),
             Lang.readItemLore("FOUR_BOW"), "FOUR_BOW");
     public static final SlimefunItemStack POISON_SWORD =
-            getSlimefunItemStack(SlimefunPlugin.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_16) ? Material.NETHERITE_SWORD : Material.DIAMOND_SWORD, Lang.readItemText("POISON_SWORD"),
+            getSlimefunItemStack(Slimefun.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_16) ? Material.NETHERITE_SWORD : Material.DIAMOND_SWORD, Lang.readItemText("POISON_SWORD"),
                     Lang.readItemLore("POISON_SWORD"), "POISON_SWORD");
     public static final SlimefunItemStack ANTI_SLOWNESS_BOOTS =
             getSlimefunItemStack(Material.IRON_BOOTS, Lang.readItemText("ANTI_SLOWNESS_BOOTS"),
                     Lang.readItemLore("ANTI_SLOWNESS_BOOTS"), "ANTI_SLOWNESS_BOOTS");
     public static final SlimefunItemStack COCOA_BEAN =
             getSlimefunItemStack(Material.COCOA_BEANS, Lang.readItemText("COCOA_BEAN"), Lang.readItemLore("COCOA_BEAN"), "COCOA_BEAN");
-    public static final SlimefunItemStack PLASTIC = getSlimefunItemStack(
-            SlimefunPlugin.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_14) ? Material.WHITE_DYE
-                    : Material.BONE_MEAL,
+    public static final SlimefunItemStack PLASTIC = getSlimefunItemStack(Material.BONE_MEAL,
             Lang.readItemText("PLASTIC"), Lang.readItemLore("PLASTIC"), "PLASTIC");
     public static final SlimefunItemStack RAW_CHICKEN_FOOT =
             getSlimefunItemStack(Material.RABBIT_FOOT, Lang.readItemText("RAW_CHICKEN_FOOT"),
@@ -75,14 +72,10 @@ public class ClayTechItems {
     public static final SlimefunItemStack DIRTY_TEA = getSlimefunItemStack(Material.KELP, Lang.readItemText("DIRTY_TEA"), Lang.readItemLore("DIRTY_TEA"), "DIRTY_TEA");
     public static final SlimefunItemStack RAW_TEA = getSlimefunItemStack(Material.KELP, Lang.readItemText("TEA"),
             Lang.readItemLore("TEA"), "TEA");
-    public static final SlimefunItemStack TEA_POWDER = getSlimefunItemStack(
-            SlimefunPlugin.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_14) ? Material.BROWN_DYE
-                    : Material.BONE_MEAL,
+    public static final SlimefunItemStack TEA_POWDER = getSlimefunItemStack(Material.BONE_MEAL,
             Lang.readItemText("TEA_POWDER"), Lang.readItemLore("TEA_POWDER"), "TEA_POWDER");
     public static final SlimefunItemStack LEMON_POWDER =
-            getSlimefunItemStack(SlimefunPlugin.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_14)
-                            ? Material.YELLOW_DYE
-                            : Material.BONE_MEAL, Lang.readItemText("LEMON_POWDER"),
+            getSlimefunItemStack(Material.BONE_MEAL, Lang.readItemText("LEMON_POWDER"),
                     Lang.readItemLore("LEMON_POWDER"), "LEMON_POWDER");
     public static final SlimefunItemStack FLOUR = getSlimefunItemStack(Material.SUGAR, Lang.readItemText("FLOUR"), Lang.readItemLore("FLOUR"), "FLOUR");
     public static final SlimefunItemStack STARCH = getSlimefunItemStack(Material.SUGAR, Lang.readItemText("STARCH"), Lang.readItemLore("STARCH"), "STARCH");
@@ -267,43 +260,41 @@ public class ClayTechItems {
     public static final SlimefunItemStack CLAY_ALLOY_BOOTS = getSlimefunItemStack(Material.IRON_HELMET, Lang.readItemText("CLAY_ALLOY_BOOTS"), "CLAY_ALLOY_BOOTS");
     private static final NamespacedKey N_BASIC = new NamespacedKey(ClayTech.plugin, "claycategory");
     // 分类
-    public static final LockedCategory C_BASICS = new LockedCategory(N_BASIC,
-            new CustomItem(Material.CLAY, Lang.readCategoriesText("Basic")),
-            new NamespacedKey(SlimefunPlugin.instance(), "basic_machines"));
-    public static final LockedCategory C_WEAPONS = new LockedCategory(
+    public static final LockedItemGroup C_BASICS = new LockedItemGroup(N_BASIC,
+            new CustomItemStack(Material.CLAY, Lang.readCategoriesText("Basic")),
+            new NamespacedKey(ClayTech.getInstance(), "basic_machines"));
+    public static final LockedItemGroup C_WEAPONS = new LockedItemGroup(
             new NamespacedKey(ClayTech.plugin, "claycategory1"),
-            new CustomItem(Material.DIAMOND_SWORD, Lang.readCategoriesText("Weapons")), N_BASIC);
-    public static final LockedCategory C_FOOD = new LockedCategory(new NamespacedKey(ClayTech.plugin, "claycategory"),
-            new CustomItem(Material.ENCHANTED_GOLDEN_APPLE, Lang.readCategoriesText("Food")), N_BASIC);
-    public static final LockedCategory C_FOODMATERIALS = new LockedCategory(
+            new CustomItemStack(Material.DIAMOND_SWORD, Lang.readCategoriesText("Weapons")), N_BASIC);
+    public static final LockedItemGroup C_FOOD = new LockedItemGroup(new NamespacedKey(ClayTech.plugin, "claycategory"),
+            new CustomItemStack(Material.ENCHANTED_GOLDEN_APPLE, Lang.readCategoriesText("Food")), N_BASIC);
+    public static final LockedItemGroup C_FOODMATERIALS = new LockedItemGroup(
             new NamespacedKey(ClayTech.plugin, "claycategory2"),
-            new CustomItem(Material.COCOA_BEANS, Lang.readCategoriesText("FoodMakings")), N_BASIC);
-    public static final LockedCategory C_DRINK = new LockedCategory(new NamespacedKey(ClayTech.plugin, "claycategory"),
-            new CustomItem(Material.WATER_BUCKET, Lang.readCategoriesText("Drink")), N_BASIC);
-    public static final LockedCategory C_MATERIALS = new LockedCategory(
+            new CustomItemStack(Material.COCOA_BEANS, Lang.readCategoriesText("FoodMakings")), N_BASIC);
+    public static final LockedItemGroup C_DRINK = new LockedItemGroup(new NamespacedKey(ClayTech.plugin, "claycategory"),
+            new CustomItemStack(Material.WATER_BUCKET, Lang.readCategoriesText("Drink")), N_BASIC);
+    public static final LockedItemGroup C_MATERIALS = new LockedItemGroup(
             new NamespacedKey(ClayTech.plugin, "claycategory3"),
-            new CustomItem(Material.COAL, Lang.readCategoriesText("Makings")), N_BASIC);
-    public static final LockedCategory C_ARMORS = new LockedCategory(new NamespacedKey(ClayTech.plugin, "claycategory"),
-            new CustomItem(Material.DIAMOND_CHESTPLATE, Lang.readCategoriesText("Armors")), N_BASIC);
-    public static final LockedCategory C_DECORATES = new LockedCategory(
+            new CustomItemStack(Material.COAL, Lang.readCategoriesText("Makings")), N_BASIC);
+    public static final LockedItemGroup C_ARMORS = new LockedItemGroup(new NamespacedKey(ClayTech.plugin, "claycategory"),
+            new CustomItemStack(Material.DIAMOND_CHESTPLATE, Lang.readCategoriesText("Armors")), N_BASIC);
+    public static final LockedItemGroup C_DECORATES = new LockedItemGroup(
             new NamespacedKey(ClayTech.plugin, "claycategory4"),
-            new CustomItem(Material.PLAYER_HEAD, Lang.readCategoriesText("Decorates")), N_BASIC);
-    public static final LockedCategory C_ELEMENTS = new LockedCategory(
+            new CustomItemStack(Material.PLAYER_HEAD, Lang.readCategoriesText("Decorates")), N_BASIC);
+    public static final LockedItemGroup C_ELEMENTS = new LockedItemGroup(
             new NamespacedKey(ClayTech.plugin, "claycategory5"),
-            new CustomItem(Material.FLOWER_POT, Lang.readCategoriesText("Elements")), N_BASIC);
-    public static final LockedCategory C_MACHINES = new LockedCategory(
+            new CustomItemStack(Material.FLOWER_POT, Lang.readCategoriesText("Elements")), N_BASIC);
+    public static final LockedItemGroup C_MACHINES = new LockedItemGroup(
             new NamespacedKey(ClayTech.plugin, "claycategory6"),
-            new CustomItem(Material.FURNACE, Lang.readCategoriesText("Machines")), N_BASIC);
-    public static final LockedCategory C_OTHER = new LockedCategory(new NamespacedKey(ClayTech.plugin, "claycategory7"),
-            new CustomItem(Material.POWERED_RAIL, Lang.readCategoriesText("Other")), N_BASIC);
-    public static final LockedCategory C_TOOLS = new LockedCategory(new NamespacedKey(ClayTech.plugin, "claycategory8"),
-            new CustomItem(Material.DIAMOND_PICKAXE, Lang.readCategoriesText("Tools")), N_BASIC);
-    public static final LockedCategory C_ORESTHINGS = new LockedCategory(
+            new CustomItemStack(Material.FURNACE, Lang.readCategoriesText("Machines")), N_BASIC);
+    public static final LockedItemGroup C_OTHER = new LockedItemGroup(new NamespacedKey(ClayTech.plugin, "claycategory7"),
+            new CustomItemStack(Material.POWERED_RAIL, Lang.readCategoriesText("Other")), N_BASIC);
+    public static final LockedItemGroup C_TOOLS = new LockedItemGroup(new NamespacedKey(ClayTech.plugin, "claycategory8"),
+            new CustomItemStack(Material.DIAMOND_PICKAXE, Lang.readCategoriesText("Tools")), N_BASIC);
+    public static final LockedItemGroup C_ORESTHINGS = new LockedItemGroup(
             new NamespacedKey(ClayTech.plugin, "claycategory9"),
-            new CustomItem(Material.BRICK, Lang.readCategoriesText("OreThings")), N_BASIC);
-    public static ItemStack HONEY_SWEET = new CustomItem(SlimefunPlugin.getMinecraftVersion()
-            .isAtLeast(MinecraftVersion.MINECRAFT_1_15)
-            ? Material.HONEYCOMB : Material.SUGAR, Lang.readItemText("HONEY_SWEET"),
+            new CustomItemStack(Material.BRICK, Lang.readCategoriesText("OreThings")), N_BASIC);
+    public static ItemStack HONEY_SWEET = new CustomItemStack(Material.HONEYCOMB, Lang.readItemText("HONEY_SWEET"),
             Lang.readItemLore("HONEY_SWEET"));
 
     static {
@@ -326,11 +317,11 @@ public class ClayTechItems {
     }
 
     private static SlimefunItemStack getSlimefunItemStack(Material m, String name, String id) {
-        return new SlimefunItemStack(id, new CustomItem(m, name));
+        return new SlimefunItemStack(id, new CustomItemStack(m, name));
     }
 
     private static SlimefunItemStack getSlimefunItemStack(Material m, String name, List<String> lore, String id) {
-        return new SlimefunItemStack(id, new CustomItem(m, name, lore));
+        return new SlimefunItemStack(id, new CustomItemStack(m, name, lore));
     }
 
     private static SlimefunItemStack getSlimefunItemStack(ItemStack stack, String name, String id) {

@@ -4,7 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd34d62b-ea97-4e90-ae51-59c7e559fc6e" name="更改" comment="" />
+    <list default="true" id="dd34d62b-ea97-4e90-ae51-59c7e559fc6e" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClayTech.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ClayTech.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTech.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTech.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechMachineRecipes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechMachineRecipes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechRecipeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechRecipeType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechUpdater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechUpdater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/api/ClayTechManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/api/ClayTechManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/abstractMachines/ACraftingTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/abstractMachines/ACraftingTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/abstractMachines/ARocketTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/abstractMachines/ARocketTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Armors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Armors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Clay_basic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Clay_basic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/MachineMakingBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/MachineMakingBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Machines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Machines.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/CraftingTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/CraftingTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/RocketAssemblingMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/RocketAssemblingMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/utils/Slimefunutils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/utils/SlimefunUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/en-GB.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fr.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ja.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pl-PL.yml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,21 +42,77 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="1xDtWMYo6FANSbedvjGFdbym83N" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.ClayTech [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/CurryMix/IdeaProjects/RSFA-SlimefunAddons/ClayTech-Reloaded&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\idea-projects\ClayTech\lib" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="ClayTech-Reloaded" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="ClayTech-Reloaded" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClayTech [clean,package]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -38,6 +123,10 @@
       <option name="presentableId" value="Default" />
       <updated>1629901519402</updated>
       <workItem from="1629901520923" duration="6280000" />
+      <workItem from="1703246815679" duration="1896000" />
+      <workItem from="1703293776622" duration="1708000" />
+      <workItem from="1703298771236" duration="3000" />
+      <workItem from="1703300235461" duration="3209000" />
     </task>
     <servers />
   </component>
