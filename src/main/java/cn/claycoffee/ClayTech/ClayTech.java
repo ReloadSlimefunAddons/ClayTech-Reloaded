@@ -43,7 +43,6 @@ public class ClayTech extends JavaPlugin implements SlimefunAddon {
     private static String updateBranch;
     private static FileConfiguration config;
     private static DataYML defaultLangYML;
-    private static FileConfiguration defaultLang;
     private static boolean worldBorderEnabled;
 
     public static ClayTech getInstance() {
@@ -94,10 +93,6 @@ public class ClayTech extends JavaPlugin implements SlimefunAddon {
         return defaultLangYML;
     }
 
-    public static FileConfiguration getDefaultLang() {
-        return defaultLang;
-    }
-
     public static boolean isWorldBorderEnabled() {
         return worldBorderEnabled;
     }
@@ -130,7 +125,7 @@ public class ClayTech extends JavaPlugin implements SlimefunAddon {
         currentLangYML.reloadCustomConfig(this);
         FileConfiguration currentLang = currentLangYML.getCustomConfig();
         defaultLangYML = new DataYML("en-US.yml", this);
-        defaultLang = defaultLangYML.getCustomConfig();
+        FileConfiguration defaultLang = defaultLangYML.getCustomConfig();
         currentLangYML.saveCustomConfig();
         currentLangYML.reloadCustomConfig(this);
         defaultLangYML.saveCustomConfig();
@@ -209,7 +204,7 @@ public class ClayTech extends JavaPlugin implements SlimefunAddon {
                 Bukkit.getLogger().info(ChatColor.GREEN + Lang.readGeneralText("Info_2").replaceAll("\\{version}",
                         plugin.getDescription().getVersion()));
                 Bukkit.getLogger().info(ChatColor.GREEN + Lang.readGeneralText("Info_3").replaceAll("\\{author}",
-                        Utils.ArrayToString(Authors.toArray(new String[Authors.size()]), ",", ".")));
+                        ListUtils.toString(Authors)));
                 Bukkit.getLogger().info(ChatColor.GREEN + Lang.readGeneralText("Info_4"));
                 Bukkit.getLogger().info(ChatColor.GREEN
                         + Lang.readGeneralText("Info_5").replaceAll("\\{issue_tracker}", plugin.getBugTrackerURL()));

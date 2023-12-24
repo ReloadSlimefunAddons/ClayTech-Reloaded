@@ -4,13 +4,14 @@ import cn.claycoffee.ClayTech.ClayTech;
 import cn.claycoffee.ClayTech.api.ClayTechManager;
 import cn.claycoffee.ClayTech.api.Planet;
 import cn.claycoffee.ClayTech.utils.Lang;
+import cn.claycoffee.ClayTech.utils.MetadataUtil;
 import cn.claycoffee.ClayTech.utils.PlanetUtils;
 import cn.claycoffee.ClayTech.utils.RocketUtils;
-import cn.claycoffee.ClayTech.utils.Utils;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.block.data.Levelled;
 import org.bukkit.block.data.type.Dispenser;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
@@ -381,10 +382,10 @@ public class PlanetListener implements Listener {
                     return;
                 }
                 // 否则，目标位置在另外一个星球.
-                if (Utils.readPlayerMetadataString(e.getPlayer(), "inrocket") != null) {
-                    inRocket = Utils.readPlayerMetadataString(e.getPlayer(), "inrocket");
+                if (MetadataUtil.getMetadataAsString(e.getPlayer(), "inrocket") != null) {
+                    inRocket = MetadataUtil.getMetadataAsString(e.getPlayer(), "inrocket");
                 }
-                boolean ast = Utils.readPlayerMetadataBoolean(e.getPlayer(), "allowSpaceTeleport");
+                boolean ast = MetadataUtil.getMetadataAsBoolean(e.getPlayer(), "allowSpaceTeleport");
                 if (!inRocket.equalsIgnoreCase("true")) {
                     if (ast) {
                         e.getPlayer().setMetadata("allowSpaceTeleport",
@@ -394,12 +395,11 @@ public class PlanetListener implements Listener {
                     // 其他星球传送到主世界
                     e.getPlayer().sendMessage(Lang.readGeneralText("CantUseOtherTeleportInUniverse"));
                     e.setCancelled(true);
-                    return;
                 }
             } else {
                 // 再否则，目标位置不在任何星球。
                 // 比如，月球传送到地狱。
-                boolean ast = Utils.readPlayerMetadataBoolean(e.getPlayer(), "allowSpaceTeleport");
+                boolean ast = MetadataUtil.getMetadataAsBoolean(e.getPlayer(), "allowSpaceTeleport");
                 if (!p.getPlanetWorldName().equalsIgnoreCase(ClayTech.getOverworld())) {
                     if (ast) {
                         e.getPlayer().setMetadata("allowSpaceTeleport",
@@ -409,12 +409,11 @@ public class PlanetListener implements Listener {
                     // 其他星球传送到主世界
                     e.getPlayer().sendMessage(Lang.readGeneralText("CantUseOtherTeleportInUniverse"));
                     e.setCancelled(true);
-                    return;
                 }
             }
         } else if (to != null) {
             // 目标位置是一个星球，但出发位置不是任何一个星球。
-            boolean ast = Utils.readPlayerMetadataBoolean(e.getPlayer(), "allowSpaceTeleport");
+            boolean ast = MetadataUtil.getMetadataAsBoolean(e.getPlayer(), "allowSpaceTeleport");
             if (!to.getPlanetWorldName().equalsIgnoreCase(ClayTech.getOverworld())) {
                 if (ast) {
                     e.getPlayer().setMetadata("allowSpaceTeleport",
@@ -424,7 +423,6 @@ public class PlanetListener implements Listener {
                 // 在主世界传送到其他星球
                 e.getPlayer().sendMessage(Lang.readGeneralText("CantUseOtherTeleportInUniverse"));
                 e.setCancelled(true);
-                return;
             }
         }
         // 最后否则，出发地和结束地都不在任何一个星球，pass掉.
@@ -439,7 +437,7 @@ public class PlanetListener implements Listener {
                     && ClayTechManager.isSpaceSuit(p.getInventory().getLeggings())
                     && ClayTechManager.isSpaceSuit(p.getInventory().getBoots())) {
                 e.setDamage(e.getDamage() - e.getFinalDamage());
-                if (Utils.readPlayerMetadataBoolean(p, "SpaceSuitNoCostDurability")) {
+                if (MetadataUtil.getMetadataAsBoolean(p, "SpaceSuitNoCostDurability")) {
                     e.setCancelled(true);
                     p.setMetadata("SpaceSuitNoCostDurability", new FixedMetadataValue(ClayTech.getInstance(), false));
                 }
@@ -459,7 +457,7 @@ public class PlanetListener implements Listener {
                     && ClayTechManager.isSpaceSuit(p.getInventory().getLeggings())
                     && ClayTechManager.isSpaceSuit(p.getInventory().getBoots())) {
                 e.setDamage(e.getDamage() - e.getFinalDamage());
-                if (Utils.readPlayerMetadataBoolean(p, "SpaceSuitNoCostDurability")) {
+                if (MetadataUtil.getMetadataAsBoolean(p, "SpaceSuitNoCostDurability")) {
                     e.setCancelled(true);
                     p.setMetadata("SpaceSuitNoCostDurability", new FixedMetadataValue(ClayTech.getInstance(), false));
                 }
@@ -498,7 +496,6 @@ public class PlanetListener implements Listener {
                         }
 
                     }.runTaskLater(ClayTech.getInstance(), 30);
-                    return;
                 }
             }
         }
@@ -538,7 +535,6 @@ public class PlanetListener implements Listener {
                         }
 
                     }.runTaskLater(ClayTech.getInstance(), 30);
-                    return;
                 }
             }
         }
@@ -549,9 +545,9 @@ public class PlanetListener implements Listener {
         Planet p = PlanetUtils.getPlanet(e.getBlock().getWorld());
         if (p != null) {
             if (p.getCold()) {
-                e.getBlock().getWorld().playSound(e.getBlock().getLocation(), Sound.BLOCK_FIRE_EXTINGUISH, 1.0F, 1.0F);
-                e.setNewLevel(0);
-                return;
+                Block block = e.getBlock();
+                block.getWorld().playSound(e.getBlock().getLocation(), Sound.BLOCK_FIRE_EXTINGUISH, 1.0F, 1.0F);
+                ((Levelled) block.getState()).setLevel(0);
             }
         }
     }

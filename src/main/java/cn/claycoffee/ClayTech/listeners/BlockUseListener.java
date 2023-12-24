@@ -33,7 +33,6 @@ public class BlockUseListener implements Listener {
         } else if (e.getAction() == Action.RIGHT_CLICK_BLOCK) {
             if (BlockStorage.checkID(e.getClickedBlock()) != null && BlockStorage.checkID(e.getClickedBlock()).equals("CLAY_AIR_LOCK_PLATE")) {
                 new ClayAirLockerGUI(27, Lang.readMachinesText("CLAY_AIR_LOCKER"), true, e.getClickedBlock()).show(e.getPlayer());
-                return;
             }
         }
     }

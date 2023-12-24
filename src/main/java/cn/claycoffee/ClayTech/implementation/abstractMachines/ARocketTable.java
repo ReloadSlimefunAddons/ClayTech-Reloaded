@@ -3,6 +3,7 @@ package cn.claycoffee.ClayTech.implementation.abstractMachines;
 import cn.claycoffee.ClayTech.ClayTech;
 import cn.claycoffee.ClayTech.api.events.PlayerAssembleEvent;
 import cn.claycoffee.ClayTech.utils.Lang;
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -46,7 +47,6 @@ public abstract class ARocketTable extends SlimefunItem implements InventoryBloc
     public static final int[] inputSlots = new int[]{11, 19, 20, 21, 28, 29, 30, 37, 38, 39};
     public static final int[] outputSlots = new int[]{34};
     public static final Map<Block, MachineRecipe> processing = new HashMap<>();
-    public static final Map<Block, Integer> progress = new HashMap<>();
     private static final int[] BORDER = {0, 1, 3, 5, 6, 7, 8, 14, 15, 16, 17, 23, 41, 50, 51, 52, 53, 32};
     private static final int[] BORDER_IN = {9, 10, 12, 13, 18, 22, 27, 31, 36, 40, 45, 46, 47, 48, 49};
     private static final int[] BORDER_OUT = {24, 25, 26, 33, 35, 42, 43, 44};
@@ -73,7 +73,7 @@ public abstract class ARocketTable extends SlimefunItem implements InventoryBloc
 
             @Override
             public void onBlockBreak(@NotNull Block b) {
-                BlockMenu inv = BlockStorage.getInventory(b);
+                BlockMenu inv = StorageCacheUtils.getMenu(b.getLocation());
 
                 if (inv != null) {
                     inv.dropItems(b.getLocation(), getInputSlots());
@@ -135,7 +135,7 @@ public abstract class ARocketTable extends SlimefunItem implements InventoryBloc
                 @Override
                 public boolean onClick(InventoryClickEvent e, Player p, int slot, ItemStack cursor,
                                        ClickAction action) {
-                    return cursor == null || cursor.getType() == null || cursor.getType() == Material.AIR;
+                    return cursor == null || cursor.getType() == Material.AIR;
                 }
             });
         }

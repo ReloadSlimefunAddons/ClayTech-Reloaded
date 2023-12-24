@@ -2,21 +2,21 @@ package cn.claycoffee.ClayTech.implementation.machines;
 
 import cn.claycoffee.ClayTech.implementation.abstractMachines.ANewContainer;
 import cn.claycoffee.ClayTech.utils.Lang;
-import io.github.thebusybiscuit.slimefun4.core.categories.LockedCategory;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.groups.LockedItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public class ElectricStoneCrusher extends ANewContainer {
 
-    public ElectricStoneCrusher(LockedCategory category, SlimefunItemStack item, String id, RecipeType recipeType,
-                                ItemStack[] recipe) {
+    public ElectricStoneCrusher(LockedItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
     }
 
     @Override
-    public String getInventoryTitle() {
+    public @NotNull String getInventoryTitle() {
         return Lang.readMachinesText("CLAY_ELECTRIC_STONE_CRUSHER");
     }
 
@@ -47,7 +47,7 @@ public class ElectricStoneCrusher extends ANewContainer {
     }
 
     @Override
-    public String getMachineIdentifier() {
+    public @NotNull String getMachineIdentifier() {
         return "CLAY_ELECTRIC_STONE_CRUSHER";
     }
 }

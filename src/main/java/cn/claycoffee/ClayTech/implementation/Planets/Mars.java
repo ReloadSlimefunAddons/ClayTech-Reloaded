@@ -2,13 +2,14 @@ package cn.claycoffee.ClayTech.implementation.Planets;
 
 import cn.claycoffee.ClayTech.api.Planet;
 import cn.claycoffee.ClayTech.utils.Lang;
-import cn.claycoffee.ClayTech.utils.Utils;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.World.Environment;
 import org.bukkit.block.Biome;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.util.noise.SimplexOctaveGenerator;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -17,13 +18,13 @@ public class Mars extends ChunkGenerator {
     private SimplexOctaveGenerator sog;
 
     public Mars() {
-        new Planet("CMars", Utils.newItemD(Material.YELLOW_GLAZED_TERRACOTTA, Lang.readPlanetsText("Mars")), this,
+        new Planet("CMars", new CustomItemStack(Material.YELLOW_GLAZED_TERRACOTTA, Lang.readPlanetsText("Mars")), this,
                 Environment.NORMAL, true, 1, 100, 0, false).register();
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public ChunkData generateChunkData(World world, Random random, int chunkX, int chunkZ, BiomeGrid biome) {
+    public @NotNull ChunkData generateChunkData(World world, Random random, int chunkX, int chunkZ, BiomeGrid biome) {
         ChunkData chunkData = createChunkData(world);
         if (sog == null) {
             sog = new SimplexOctaveGenerator(world.getSeed(), 1);
@@ -46,9 +47,8 @@ public class Mars extends ChunkGenerator {
 
                 double basicNoiseValue = sort[0];
 
-                int basicHeight = (int) (basicNoiseValue * 40D + 45D);
-                int finalHeight = basicHeight;
-                finalHeight += 7D;
+                int finalHeight = (int) (basicNoiseValue * 40D + 45D);
+                finalHeight += 7;
 
                 chunkData.setBlock(x, 0, z, Material.BEDROCK);
 
@@ -60,7 +60,7 @@ public class Mars extends ChunkGenerator {
                 if (c1 >= 0.4) {
                     // 生成沙砾
                     chunkData.setBlock(x, finalHeight - 1, z, Material.GRAVEL);
-                } else if (c1 <= 0.4 && c1 >= 0.3) {
+                } else if (c1 >= 0.3) {
                     // 生成红沙
                     chunkData.setBlock(x, finalHeight - 1, z, Material.RED_SAND);
                 } else {

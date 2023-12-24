@@ -1,31 +1,30 @@
 package cn.claycoffee.ClayTech.implementation.abstractMachines;
 
 import cn.claycoffee.ClayTech.utils.Lang;
-import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent;
 import io.github.thebusybiscuit.slimefun4.core.attributes.MachineProcessHolder;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.core.machines.MachineProcessor;
 import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponentType;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
 import io.github.thebusybiscuit.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.operations.CraftingOperation;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu.AdvancedMenuClickHandler;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecipe;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.interfaces.InventoryBlock;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -44,21 +43,20 @@ public abstract class AExtracter extends SlimefunItem implements InventoryBlock,
     public final static int[] inputSlots = new int[]{20};
     public final static int[] outputSlots = new int[]{24};
     public static final Map<Block, MachineRecipe> processing = new HashMap<>();
-    public static final Map<Block, Integer> progress = new HashMap<>();
     private static final int[] BORDER = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 18, 26, 27, 35, 36, 44, 45, 46, 47, 48, 49,
             50, 51, 52, 53, 13};
     private static final int[] BORDER_A = {10, 11, 12, 19, 21, 28, 29, 30, 14, 15, 16, 23, 25, 32, 33, 34};
     private static final int[] BORDER_B = {37, 38, 39, 41, 42, 43};
-    private static final ItemStack BORDER_ITEM = new CustomItem(Material.BLACK_STAINED_GLASS_PANE,
+    private static final ItemStack BORDER_ITEM = new CustomItemStack(Material.BLACK_STAINED_GLASS_PANE,
             Lang.readMachinesText("SPLIT_LINE"));
-    private static final ItemStack BORDERA_ITEM = new CustomItem(Material.LIME_STAINED_GLASS_PANE,
+    private static final ItemStack BORDERA_ITEM = new CustomItemStack(Material.LIME_STAINED_GLASS_PANE,
             Lang.readMachinesText("SPLIT_LINE"));
-    private static final ItemStack BORDERB_ITEM = new CustomItem(Material.MAGENTA_STAINED_GLASS_PANE,
+    private static final ItemStack BORDERB_ITEM = new CustomItemStack(Material.MAGENTA_STAINED_GLASS_PANE,
             Lang.readMachinesText("SPLIT_LINE"));
     protected final List<MachineRecipe> recipes = new ArrayList<>();
     private final MachineProcessor<CraftingOperation> processor = new MachineProcessor<>(this);
 
-    public AExtracter(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+    public AExtracter(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
 
         processor.setProgressBar(getProgressBar());
@@ -73,7 +71,7 @@ public abstract class AExtracter extends SlimefunItem implements InventoryBlock,
 
             @Override
             public void onBlockBreak(@NotNull Block b) {
-                BlockMenu inv = BlockStorage.getInventory(b);
+                BlockMenu inv = StorageCacheUtils.getMenu(b.getLocation());
 
                 if (inv != null) {
                     inv.dropItems(b.getLocation(), getInputSlots());
@@ -119,13 +117,11 @@ public abstract class AExtracter extends SlimefunItem implements InventoryBlock,
         for (int eachID : BORDER_B) {
             preset.addItem(eachID, BORDERB_ITEM, ChestMenuUtils.getEmptyClickHandler());
         }
-        preset.addItem(22, new CustomItem(Material.PINK_STAINED_GLASS_PANE, " "),
+        preset.addItem(22, new CustomItemStack(Material.PINK_STAINED_GLASS_PANE, " "),
                 ChestMenuUtils.getEmptyClickHandler());
         preset.addItem(5, BORDER_ITEM, ChestMenuUtils.getEmptyClickHandler());
         preset.addItem(31,
-                new CustomItem(SlimefunPlugin.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_14)
-                        ? Material.OAK_SIGN
-                        : Material.LEGACY_SIGN, Lang.readMachinesText("ELEMENT_UNIT_DOWN")),
+                new CustomItemStack(Material.OAK_SIGN, Lang.readMachinesText("ELEMENT_UNIT_DOWN")),
                 ChestMenuUtils.getEmptyClickHandler());
 
         for (int i : getOutputSlots()) {
@@ -139,14 +135,14 @@ public abstract class AExtracter extends SlimefunItem implements InventoryBlock,
                 @Override
                 public boolean onClick(InventoryClickEvent e, Player p, int slot, ItemStack cursor,
                                        ClickAction action) {
-                    return cursor == null || cursor.getType() == null || cursor.getType() == Material.AIR;
+                    return cursor == null || cursor.getType() == Material.AIR;
                 }
             });
         }
     }
 
     @Override
-    public EnergyNetComponentType getEnergyComponentType() {
+    public @NotNull EnergyNetComponentType getEnergyComponentType() {
         return EnergyNetComponentType.CONSUMER;
     }
 
@@ -190,7 +186,7 @@ public abstract class AExtracter extends SlimefunItem implements InventoryBlock,
     public void preRegister() {
         addItemHandler(new BlockTicker() {
             @Override
-            public void tick(Block b, SlimefunItem sf, Config data) {
+            public void tick(Block b, SlimefunItem sf, SlimefunBlockData data) {
                 AExtracter.this.tick(b);
             }
 
@@ -202,17 +198,17 @@ public abstract class AExtracter extends SlimefunItem implements InventoryBlock,
     }
 
     protected void tick(Block b) {
-        BlockMenu inv = BlockStorage.getInventory(b);
+        BlockMenu inv = StorageCacheUtils.getMenu(b.getLocation());
         CraftingOperation currentOperation = processor.getOperation(b);
 
-        if (currentOperation != null) {
+        if (inv != null && currentOperation != null) {
             if (takeCharge(b.getLocation())) {
 
                 if (!currentOperation.isFinished()) {
                     processor.updateProgressBar(inv, 22, currentOperation);
                     currentOperation.addProgress(1);
                 } else {
-                    inv.replaceExistingItem(22, new CustomItem(Material.PINK_STAINED_GLASS_PANE, " "));
+                    inv.replaceExistingItem(22, new CustomItemStack(Material.PINK_STAINED_GLASS_PANE, " "));
 
                     for (ItemStack output : currentOperation.getResults()) {
                         inv.pushItem(output.clone(), getOutputSlots());
@@ -231,7 +227,7 @@ public abstract class AExtracter extends SlimefunItem implements InventoryBlock,
     }
 
     @Override
-    public MachineProcessor<CraftingOperation> getMachineProcessor() {
+    public @NotNull MachineProcessor<CraftingOperation> getMachineProcessor() {
         return processor;
     }
 

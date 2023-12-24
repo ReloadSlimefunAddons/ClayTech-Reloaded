@@ -3,21 +3,22 @@ package cn.claycoffee.ClayTech.implementation.machines;
 import cn.claycoffee.ClayTech.ClayTechItems;
 import cn.claycoffee.ClayTech.implementation.abstractMachines.ANewContainer;
 import cn.claycoffee.ClayTech.utils.Lang;
-import io.github.thebusybiscuit.slimefun4.core.categories.LockedCategory;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.groups.LockedItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public class FoodChalkingMachine extends ANewContainer {
 
-    public FoodChalkingMachine(LockedCategory category, SlimefunItemStack item, String id, RecipeType recipeType,
+    public FoodChalkingMachine(LockedItemGroup category, SlimefunItemStack item, RecipeType recipeType,
                                ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
     }
 
     @Override
-    public String getInventoryTitle() {
+    public @NotNull String getInventoryTitle() {
         return Lang.readMachinesText("CLAY_FOOD_CHALKING_MACHINE");
     }
 
@@ -42,7 +43,7 @@ public class FoodChalkingMachine extends ANewContainer {
     }
 
     @Override
-    public String getMachineIdentifier() {
+    public @NotNull String getMachineIdentifier() {
         return "CLAY_FOOD_CHALKING_MACHINE";
     }
 

@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ListUtils {
     public static boolean existsInStringList(List<String> list, String content) {
-        return list.indexOf(content) != -1 ? true : false;
+        return list.contains(content);
     }
 
     public static boolean existsInArray(int[] arr, int e) {
@@ -20,5 +20,13 @@ public class ListUtils {
             if (i == e) return true;
         }
         return false;
+    }
+
+    public static String toString(List<String> list) {
+        StringBuilder sb = new StringBuilder();
+        for (String s : list) {
+            sb.append(s).append(",");
+        }
+        return sb.toString();
     }
 }

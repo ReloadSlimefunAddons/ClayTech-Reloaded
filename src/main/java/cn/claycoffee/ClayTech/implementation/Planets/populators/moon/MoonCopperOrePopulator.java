@@ -1,4 +1,4 @@
-package cn.claycoffee.ClayTech.implementation.Planets.populators;
+package cn.claycoffee.ClayTech.implementation.Planets.populators.moon;
 
 import cn.claycoffee.ClayTech.ClayTech;
 import cn.claycoffee.ClayTech.ClayTechItems;
@@ -14,7 +14,7 @@ import org.eclipse.jdt.annotation.NonNull;
 
 import java.util.Random;
 
-public class MoonClayFusionOrePopulator extends BlockPopulator {
+public class MoonCopperOrePopulator extends BlockPopulator {
 
     @Override
     public void populate(@NonNull World world, @NonNull Random random, @NonNull Chunk source) {
@@ -22,13 +22,13 @@ public class MoonClayFusionOrePopulator extends BlockPopulator {
 
             @Override
             public void run() {
-                int tryc = 3 + random.nextInt(2);
+                int tryc = 5 + random.nextInt(4);
                 for (int i = 0; i < tryc; i++) {
                     int x = random.nextInt(16);
                     int y = random.nextInt(100) + 1;
                     int z = random.nextInt(16);
                     int count = 0;
-                    while (count <= 3 || random.nextDouble() < 0.85D && count <= 6) {
+                    while (count <= 5 || random.nextDouble() < 0.92D && count <= 8) {
                         final int tx = x;
                         final int ty = y;
                         final int tz = z;
@@ -43,9 +43,8 @@ public class MoonClayFusionOrePopulator extends BlockPopulator {
 
                                 @Override
                                 public void run() {
-                                    source.getBlock(tx, ty, tz).setType(ClayTechItems.CLAY_FUSION_ORE.getType(),
-                                            false);
-                                    BlockStorage.addBlockInfo(source.getBlock(tx, ty, tz), "id", "CLAY_FUSION_ORE",
+                                    source.getBlock(tx, ty, tz).setType(ClayTechItems.COPPER_ORE.getType(), false);
+                                    BlockStorage.addBlockInfo(source.getBlock(tx, ty, tz), "id", "COPPER_ORE",
                                             true);
 
                                 }
@@ -81,6 +80,7 @@ public class MoonClayFusionOrePopulator extends BlockPopulator {
             }
 
         }.runTaskAsynchronously(ClayTech.getInstance());
+
     }
 
 }

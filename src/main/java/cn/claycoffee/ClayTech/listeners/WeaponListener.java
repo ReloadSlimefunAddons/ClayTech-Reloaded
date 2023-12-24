@@ -1,7 +1,8 @@
 package cn.claycoffee.ClayTech.listeners;
 
 import cn.claycoffee.ClayTech.utils.Affect;
-import cn.claycoffee.ClayTech.utils.Utils;
+import cn.claycoffee.ClayTech.utils.ListUtils;
+import cn.claycoffee.clayapi.utils.ItemUtil;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
@@ -20,7 +21,7 @@ public class WeaponListener implements Listener {
                 Player d = (Player) ((Projectile) e.getDamager()).getShooter();
                 Player p = (Player) e.getEntity();
                 Affect.AffectCheck(d, p);
-            } catch (Exception err) {
+            } catch (Exception ignored) {
             }
         } else {
             if (e.getDamager().getType() == EntityType.PLAYER && e.getEntity().getType() == EntityType.PLAYER) {
@@ -36,7 +37,7 @@ public class WeaponListener implements Listener {
         if (e.getRightClicked().getType() == EntityType.PLAYER) {
             Player d = e.getPlayer();
             try {
-                if (Utils.ExitsInList("§7钩子武器", Utils.getLore(d.getInventory().getItemInMainHand()))) {
+                if (ListUtils.existsInStringList(ItemUtil.(d.getInventory().getItemInMainHand(), "§7钩子武器"))) {
                     Player p = (Player) e.getRightClicked();
                     Affect.AffectCheck(d, p);
                 }

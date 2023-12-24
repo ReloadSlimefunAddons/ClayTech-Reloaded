@@ -13,17 +13,17 @@ import org.bukkit.NamespacedKey;
 public class Elements {
     public Elements() {
 
-        SlimefunUtils.registerItem(ClayTechItems.C_ELEMENTS, "ELEMENT_UNIT", ClayTechItems.ELEMENT_UNIT, "notresearch",
-                10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ELEMENT_UNIT, false);
+        SlimefunUtils.registerItem(ClayTechItems.C_ELEMENTS, "ELEMENT_UNIT", ClayTechItems.ELEMENT_UNIT,
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ELEMENT_UNIT);
         SlimefunUtils.registerItem(ClayTechItems.C_ELEMENTS, "ELEMENT_OXYGEN", ClayTechItems.ELEMENT_OXYGEN,
-                "notresearch", 10, ClayTechRecipeType.CLAY_ELEMENT_EXTRACTER, ClayTechMachineRecipes.ELEMENT_OXYGEN,
-                false);
+                ClayTechRecipeType.CLAY_ELEMENT_EXTRACTER, ClayTechMachineRecipes.ELEMENT_OXYGEN
+        );
         SlimefunUtils.registerItem(ClayTechItems.C_ELEMENTS, "ELEMENT_CARBON", ClayTechItems.ELEMENT_CARBON,
-                "notresearch", 10, ClayTechRecipeType.CLAY_ELEMENT_EXTRACTER, ClayTechMachineRecipes.ELEMENT_CARBON,
-                false);
+                ClayTechRecipeType.CLAY_ELEMENT_EXTRACTER, ClayTechMachineRecipes.ELEMENT_CARBON
+        );
         SlimefunUtils.registerItem(ClayTechItems.C_ELEMENTS, "ELEMENT_SILICON", ClayTechItems.ELEMENT_SILICON,
-                "notresearch", 10, ClayTechRecipeType.CLAY_ELEMENT_EXTRACTER, ClayTechMachineRecipes.ELEMENT_SILICON,
-                false);
+                ClayTechRecipeType.CLAY_ELEMENT_EXTRACTER, ClayTechMachineRecipes.ELEMENT_SILICON
+        );
 
         Research before_element = new Research(new NamespacedKey(ClayTech.getInstance(), "CLAYTECH_BEFORE_ELEMENT"),
                 9919, Lang.readResearchesText("CLAYTECH_ELEMENTS_I"), 50);

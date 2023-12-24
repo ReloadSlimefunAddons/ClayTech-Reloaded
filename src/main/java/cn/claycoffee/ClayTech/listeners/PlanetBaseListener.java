@@ -5,10 +5,10 @@ import cn.claycoffee.ClayTech.ClayTechData;
 import cn.claycoffee.ClayTech.ClayTechItems;
 import cn.claycoffee.ClayTech.api.ClayTechManager;
 import cn.claycoffee.ClayTech.api.Planet;
-import cn.claycoffee.ClayTech.objects.storage.DataYML;
 import cn.claycoffee.ClayTech.utils.Lang;
 import cn.claycoffee.ClayTech.utils.PlanetUtils;
 import cn.claycoffee.ClayTech.utils.RocketUtils;
+import cn.claycoffee.clayapi.utils.DataYML;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -44,16 +44,13 @@ public class PlanetBaseListener implements Listener {
                             e.getBlock().getZ());
                     planetsData.saveCustomConfig();
                     e.getPlayer().sendMessage(Lang.readGeneralText("BaseCompleted"));
-                    return;
                 } else {
                     e.getPlayer().sendMessage(Lang.readGeneralText("BaseExists"));
                     e.setCancelled(true);
-                    return;
                 }
             } else {
                 e.getPlayer().sendMessage(Lang.readGeneralText("NotInPlanet"));
                 e.setCancelled(true);
-                return;
             }
         }
     }
@@ -96,7 +93,7 @@ public class PlanetBaseListener implements Listener {
                             && ClayTechManager.isSpaceSuit(piv.getLeggings())
                             && ClayTechManager.isSpaceSuit(piv.getBoots())) {
                         if (RocketUtils.getOxygen(e.getItem()) >= 4) {
-                            List<String> okPart = new ArrayList<String>();
+                            List<String> okPart = new ArrayList<>();
                             if (RocketUtils.getMaxOxygen(piv.getHelmet()) > RocketUtils.getOxygen(piv.getHelmet())) {
                                 okPart.add("HELMET");
                             }
@@ -112,7 +109,7 @@ public class PlanetBaseListener implements Listener {
                                 okPart.add("BOOTS");
                             }
                             int totalOxygen = RocketUtils.getOxygen(e.getItem());
-                            if (okPart.size() == 0) {
+                            if (okPart.isEmpty()) {
                                 e.getPlayer().sendMessage(Lang.readGeneralText("SPACESUIT_DISTRIBUTER_FULL"));
                                 return;
                             }

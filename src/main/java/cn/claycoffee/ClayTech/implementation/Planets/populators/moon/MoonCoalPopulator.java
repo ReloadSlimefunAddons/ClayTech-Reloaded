@@ -1,4 +1,4 @@
-package cn.claycoffee.ClayTech.implementation.Planets.populators;
+package cn.claycoffee.ClayTech.implementation.Planets.populators.moon;
 
 import cn.claycoffee.ClayTech.ClayTech;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;

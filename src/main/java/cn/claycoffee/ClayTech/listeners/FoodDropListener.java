@@ -31,7 +31,7 @@ public class FoodDropListener implements Listener {
                             ClayTechItems.CLAY_SWEET_POTATO, new ItemStack(Material.SHEARS), 25, 30, e);
                     FoodUtils.destroy(e.getPlayer(), e.getBlock(), new ItemStack(Material.GRASS),
                             ClayTechItems.GREEN_GRASS, new ItemStack(Material.SHEARS), 31, 40, e);
-                } catch (NullPointerException err) {
+                } catch (NullPointerException ignored) {
                 }
             }
         }
@@ -45,9 +45,8 @@ public class FoodDropListener implements Listener {
                 // 这里放其他食物/饮料8!!
                 FoodUtils.fish(e, 11, 20, ClayTechItems.SNAIL_BAD);
                 FoodUtils.fish(e, 85, 92, ClayTechItems.TUNA_FISH);
-            } catch (NullPointerException err) {
+            } catch (NullPointerException ignored) {
             }
-
         }
     }
 }

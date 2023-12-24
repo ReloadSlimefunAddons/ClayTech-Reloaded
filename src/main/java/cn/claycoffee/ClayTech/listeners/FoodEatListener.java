@@ -12,7 +12,6 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class FoodEatListener implements Listener {
-    @SuppressWarnings("deprecation")
     @EventHandler(priority = EventPriority.HIGHEST)
     public void PlayerInteractEvent(PlayerInteractEvent e) {
         if (e.getAction() == Action.RIGHT_CLICK_AIR) {
@@ -34,7 +33,7 @@ public class FoodEatListener implements Listener {
                     FoodUtils.food(p, e.getItem(), ClayTechItems.CLAY_LEMON, 1,
                             new PotionEffect[]{new PotionEffect(PotionEffectType.CONFUSION, 200, 3)});
                     FoodUtils.food(p, e.getItem(), ClayTechItems.SPICY_CHICKEN_BURGER, 15,
-                            new PotionEffect[]{new PotionEffect(PotionEffectType.getById(5), 400, 1)});
+                            new PotionEffect[]{new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 400, 1)});
                     FoodUtils.food(p, e.getItem(), ClayTechItems.BABA_BURGER, -15,
                             new PotionEffect[]{new PotionEffect(PotionEffectType.POISON, 3600, 5)});
                     FoodUtils.food(p, e.getItem(), ClayTechItems.SNAIL_BAD, -20,
@@ -47,13 +46,13 @@ public class FoodEatListener implements Listener {
                     FoodUtils.food(p, e.getItem(), ClayTechItems.COOKED_SWEET_POTATO, 6);
                     FoodUtils.food(p, e.getItem(), ClayTechItems.TUNA_FISH, 6);
                     FoodUtils.food(p, e.getItem(), ClayTechItems.GREEN_GRASS, 1);
-                } catch (NullPointerException err) {
+                } catch (NullPointerException ignored) {
                 }
                 FoodUtils.wash(p, e.getItem(), ClayTechItems.DIRTY_DRINK_BOTTLE, ClayTechItems.DRINK_BOTTLE);
                 try {
                     // 这里放其他清理Event!!
                     FoodUtils.wash(p, e.getItem(), ClayTechItems.DIRTY_TEA, ClayTechItems.RAW_TEA);
-                } catch (NullPointerException err) {
+                } catch (NullPointerException ignored) {
                 }
             }
         }

@@ -15,8 +15,8 @@ import org.bukkit.inventory.ItemStack;
 public class Railways {
     public Railways() {
         SlimefunUtils.registerItem(ClayTechItems.C_OTHER, "CLAY_HIGHSPEED_RAILWAY", ClayTechItems.HIGHSPEED_RAILWAY,
-                "notresearch", 10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.HIGHSPEED_RAILWAY,
-                false);
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.HIGHSPEED_RAILWAY
+        );
         ItemStack elem8 = ClayTechItems.ELECTRIC_MOTOR_8;
         ItemStack elem8Output = elem8.clone();
         elem8Output.setAmount(8);

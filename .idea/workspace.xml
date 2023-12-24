@@ -4,40 +4,90 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd34d62b-ea97-4e90-ae51-59c7e559fc6e" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="dd34d62b-ea97-4e90-ae51-59c7e559fc6e" name="更改" comment="修复大部分错误">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/utils/MetadataUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClayTech.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ClayTech.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/org.eclipse.jdt.annotation_2.2.400.v20191120-1313.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTech.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTech.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechMachineRecipes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechMachineRecipes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechRecipeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechRecipeType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechUpdater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/ClayTechUpdater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/api/ClayTechManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/api/ClayTechManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/Earth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/Earth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/Mars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/Mars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/Moon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/Moon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/populators/MoonClayFusionOrePopulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/populators/moon/MoonClayFusionOrePopulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/populators/MoonCoalPopulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/populators/moon/MoonCoalPopulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/populators/MoonCopperOrePopulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/populators/moon/MoonCopperOrePopulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/populators/MoonDiamondPopulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/populators/moon/MoonDiamondPopulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/populators/MoonKreepPopulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/Planets/populators/moon/MoonKreepPopulator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/abstractMachines/ACraftingTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/abstractMachines/ACraftingTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/abstractMachines/AExperimentTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/abstractMachines/AExperimentTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/abstractMachines/AExtracter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/abstractMachines/AExtracter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/abstractMachines/ANewContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/abstractMachines/ANewContainer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/abstractMachines/ARocketTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/abstractMachines/ARocketTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Armors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Armors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/guis/ClayAirLockerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/guis/ClayAirLockerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/ClayFuelResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/ClayFuelResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Clay_basic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Clay_basic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/DrinkMakingStaff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/DrinkMakingStaff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Drinks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Drinks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/EffectItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/EffectItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Elements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Elements.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/FoodMakingStaff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/FoodMakingStaff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Foods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Foods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Golden_things.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Golden_things.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Ingots.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Ingots.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/MachineMakingBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/MachineMakingBasic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Machines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Machines.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/PotionAffect_Weapons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/PotionAffect_Weapons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Railways.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Railways.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/RocketMakings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/RocketMakings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Rockets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Rockets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Skulls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Skulls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Spacethings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Spacethings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/items/Tools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/ClayElectricCopier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/ClayElectricCopier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/CobbleStoneGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/CobbleStoneGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/CraftingTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/CraftingTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/RocketAssemblingMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/RocketAssemblingMachine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/utils/Slimefunutils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/utils/SlimefunUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/en-GB.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fr.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ja.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/pl-PL.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/ElectricStoneCrusher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/ElectricStoneCrusher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/ElementExtracter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/ElementExtracter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/ExperimentTableNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/ExperimentTableNormal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/FoodCauldron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/FoodCauldron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/FoodChalkingMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/FoodChalkingMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/RocketFuelGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/RocketFuelGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/RocketFuelInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/RocketFuelInjector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/SpaceSuitOxygenInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/SpaceSuitOxygenInjector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/WitherKiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/machines/WitherKiller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/resources/ClayFuel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/implementation/resources/ClayFuel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/BlockUseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/BlockUseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/FoodDropListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/FoodDropListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/FoodEatListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/FoodEatListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/ItemInteractListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/ItemInteractListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/ItemUseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/ItemUseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/MenuListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/MenuListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/PlanetBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/PlanetBaseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/PlanetListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/PlanetListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/RailwayListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/RailwayListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/RocketLauncherListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/RocketLauncherListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/WeaponListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/listeners/WeaponListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/utils/ItemUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/utils/ItemUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/utils/ListUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/utils/ListUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/utils/PlanetUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/utils/PlanetUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/utils/RocketUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/utils/RocketUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/utils/SlimefunUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/claycoffee/ClayTech/utils/SlimefunUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/en-US.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/en-US.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/zh-CN.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/zh-CN.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/zh-TW.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/zh-TW.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -126,8 +176,20 @@
       <workItem from="1703246815679" duration="1896000" />
       <workItem from="1703293776622" duration="1708000" />
       <workItem from="1703298771236" duration="3000" />
-      <workItem from="1703300235461" duration="3209000" />
+      <workItem from="1703300235461" duration="4997000" />
+      <workItem from="1703321752343" duration="12000" />
+      <workItem from="1703321801778" duration="4236000" />
+      <workItem from="1703376982746" duration="4636000" />
     </task>
+    <task id="LOCAL-00001" summary="修复大部分错误">
+      <option name="closed" value="true" />
+      <created>1703303549847</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1703303549847</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,5 +206,9 @@
     <option featureType="dependencySupport" implementationName="java:com.github.Multiverse:Multiverse-Core" />
     <option featureType="dependencySupport" implementationName="java:org.yaml:snakeyaml" />
     <option featureType="dependencySupport" implementationName="java:com.github.TheBusyBiscuit:Slimefun4" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修复大部分错误" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复大部分错误" />
   </component>
 </project>

@@ -3,17 +3,19 @@ package cn.claycoffee.ClayTech.implementation.items;
 import cn.claycoffee.ClayTech.*;
 import cn.claycoffee.ClayTech.api.Planet;
 import cn.claycoffee.ClayTech.utils.Lang;
+import cn.claycoffee.ClayTech.utils.MetadataUtil;
 import cn.claycoffee.ClayTech.utils.PlanetUtils;
 import cn.claycoffee.ClayTech.utils.SlimefunUtils;
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemHandler;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.api.researches.Research;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
-import io.github.thebusybiscuit.slimefun4.core.researching.Research;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-import me.mrCookieSlime.Slimefun.Objects.handlers.ItemHandler;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.Slimefun;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -25,14 +27,15 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class Rockets {
     private static final int[] BORDER = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 13, 17, 18, 26, 27, 35, 36, 44, 45, 47, 48, 49,
             50, 51, 53};
     private static final int[] BORDER_2 = {10, 11, 12, 14, 15, 16};
-    private static final ItemStack BORDER_ITEM = Utils.newItemD(Material.LIGHT_BLUE_STAINED_GLASS_PANE,
+    private static final ItemStack BORDER_ITEM = new CustomItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE,
             Lang.readMachinesText("SPLIT_LINE"));
-    private static final ItemStack OTHERBORDER_ITEM = Utils.newItemD(Material.LIME_STAINED_GLASS_PANE,
+    private static final ItemStack OTHERBORDER_ITEM = new CustomItemStack(Material.LIME_STAINED_GLASS_PANE,
             Lang.readMachinesText("SPLIT_LINE"));
     private static int currentPage = 1;
 
@@ -43,12 +46,12 @@ public class Rockets {
                 ClayTechItems.CLAY_FUSION_INGOT, ClayTechItems.CLAY_FUSION_INGOT, ClayTechItems.CLAY_FUSION_INGOT,
                 ClayTechItems.CLAY_FUSION_INGOT};
 
-        SlimefunUtils.registerItem(ClayTechItems.C_MACHINES, "ROCKET_LAUNCHER", ClayTechItems.ROCKET_LAUNCHER,
-                "notresearch", 10, RecipeType.ENHANCED_CRAFTING_TABLE, rocketlauncher, false,
+        SlimefunUtils.registerItem(ClayTechItems.C_MACHINES, ClayTechItems.ROCKET_LAUNCHER,
+                RecipeType.ENHANCED_CRAFTING_TABLE, rocketlauncher,
                 new ItemHandler[]{new BlockPlaceHandler(false) {
                     @Override
                     public void onPlayerPlace(BlockPlaceEvent blockPlaceEvent) {
-                        BlockStorage.addBlockInfo(blockPlaceEvent.getBlock(), "owner", blockPlaceEvent.getPlayer().getName(), true);
+                        StorageCacheUtils.setData(blockPlaceEvent.getBlock().getLocation(), "owner", blockPlaceEvent.getPlayer().getName(), true);
                     }
 
                 }, (BlockUseHandler) ev -> {
@@ -73,8 +76,8 @@ public class Rockets {
                                         e.getPlayer().sendMessage(Lang.readGeneralText("NotAtAPlanet"));
                                         return;
                                     }
-                                    if (Utils.getMetadata(b, "currentPage") != null) {
-                                        currentPage = new Integer(Utils.getMetadata(b, "currentPage")).intValue();
+                                    if (MetadataUtil.getMetadata(b, "currentPage") != null) {
+                                        currentPage = Objects.requireNonNull(MetadataUtil.getMetadata(b, "currentPage")).asInt();
                                     }
                                     Inventory Preset = Bukkit.createInventory(null, 54,
                                             Lang.readMachinesText("ROCKET_LAUNCHER"));
@@ -96,7 +99,6 @@ public class Rockets {
                                 } else {
                                     e.getPlayer().sendMessage(Lang.readGeneralText("notOwner"));
                                     e.setCancelled(true);
-                                    return;
                                 }
                             }
                         }
@@ -109,7 +111,7 @@ public class Rockets {
         ms2.register();
 
         // 火箭一阶
-        SlimefunUtils.registerItem(ClayTechItems.C_OTHER, "ROCKET_1", ClayTechItems.ROCKET, "notresearch", 10,
-                ClayTechRecipeType.CLAY_ROCKET_ASSEMBLING_MACHINE, ClayTechMachineRecipes.ROCKET_1, false);
+        SlimefunUtils.registerItem(ClayTechItems.C_OTHER, "ROCKET_1", ClayTechItems.ROCKET,
+                ClayTechRecipeType.CLAY_ROCKET_ASSEMBLING_MACHINE, ClayTechMachineRecipes.ROCKET_1);
     }
 }

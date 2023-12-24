@@ -1,7 +1,9 @@
-package cn.claycoffee.ClayTech.implementation.Planets.populators;
+package cn.claycoffee.ClayTech.implementation.Planets.populators.moon;
 
 import cn.claycoffee.ClayTech.ClayTech;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
+import cn.claycoffee.ClayTech.ClayTechItems;
+
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Chunk;
 import org.bukkit.Material;
@@ -9,11 +11,12 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.generator.BlockPopulator;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.eclipse.jdt.annotation.NonNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
+
 
 import java.util.Random;
 
-public class MoonDiamondPopulator extends BlockPopulator {
+public class MoonClayFusionOrePopulator extends BlockPopulator {
 
     @Override
     public void populate(@NonNull World world, @NonNull Random random, @NonNull Chunk source) {
@@ -27,22 +30,25 @@ public class MoonDiamondPopulator extends BlockPopulator {
                     int y = random.nextInt(100) + 1;
                     int z = random.nextInt(16);
                     int count = 0;
-                    while (count <= 7 || random.nextDouble() < 0.9D && count <= 12) {
+                    while (count <= 3 || random.nextDouble() < 0.85D && count <= 6) {
                         final int tx = x;
                         final int ty = y;
                         final int tz = z;
                         Block sourceb = source.getBlock(x, y, z);
                         if (sourceb.getType() == Material.STONE) {
-                            if (!SlimefunPlugin.getRegistry().getWorlds().containsKey(world.getName())) {
+                            if (!Slimefun.getRegistry().getWorlds().containsKey(world.getName())) {
                                 BlockStorage bs = new BlockStorage(world);
-                                SlimefunPlugin.getRegistry().getWorlds().put(world.getName(), bs);
+                                Slimefun.getRegistry().getWorlds().put(world.getName(), bs);
                             }
                             if (BlockStorage.hasBlockInfo(sourceb.getLocation())) return;
                             new BukkitRunnable() {
 
                                 @Override
                                 public void run() {
-                                    source.getBlock(tx, ty, tz).setType(Material.DIAMOND_ORE, false);
+                                    source.getBlock(tx, ty, tz).setType(ClayTechItems.CLAY_FUSION_ORE.getType(),
+                                            false);
+                                    BlockStorage.addBlockInfo(source.getBlock(tx, ty, tz), "id", "CLAY_FUSION_ORE",
+                                            true);
 
                                 }
 
@@ -71,6 +77,7 @@ public class MoonDiamondPopulator extends BlockPopulator {
                                 break;
                         }
                     }
+
                 }
 
             }

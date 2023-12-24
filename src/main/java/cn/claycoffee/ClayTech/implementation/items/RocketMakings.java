@@ -6,43 +6,43 @@ import cn.claycoffee.ClayTech.ClayTechMachineRecipes;
 import cn.claycoffee.ClayTech.ClayTechRecipeType;
 import cn.claycoffee.ClayTech.utils.Lang;
 import cn.claycoffee.ClayTech.utils.SlimefunUtils;
-import io.github.thebusybiscuit.slimefun4.core.researching.Research;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.researches.Research;
 import org.bukkit.NamespacedKey;
 
 public class RocketMakings {
     public RocketMakings() {
-        SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "MOTOR_CORE", ClayTechItems.MOTOR_CORE, "notresearch", 10,
-                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.MOTOR_CORE, false);
+        SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "MOTOR_CORE", ClayTechItems.MOTOR_CORE,
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.MOTOR_CORE);
         SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "TEMPERATURE_RESISTANCE_OBSIDIAN",
-                ClayTechItems.TEMPERATURE_RESISTANCE_OBSIDIAN, "notresearch", 10,
-                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.TEMPERATURE_RESISTANCE_OBSIDIAN, false);
+                ClayTechItems.TEMPERATURE_RESISTANCE_OBSIDIAN,
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.TEMPERATURE_RESISTANCE_OBSIDIAN);
         SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "ROCKET_ENGINE_SHELL", ClayTechItems.ROCKET_ENGINE_SHELL,
-                "notresearch", 10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_ENGINE_SHELL,
-                false);
-        SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "FUEL_TANK", ClayTechItems.FUEL_TANK, "notresearch", 10,
-                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.FUEL_TANK, false);
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_ENGINE_SHELL
+        );
+        SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "FUEL_TANK", ClayTechItems.FUEL_TANK,
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.FUEL_TANK);
         SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "ROCKET_ENGINE", ClayTechItems.ROCKET_ENGINE,
-                "notresearch", 10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_ENGINE, false);
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_ENGINE);
         SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "ROCKET_ANTENNA", ClayTechItems.ROCKET_ANTENNA,
-                "notresearch", 10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_ANTENNA,
-                false);
-        SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "ROCKET_CPU", ClayTechItems.ROCKET_CPU, "notresearch", 10,
-                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_CPU, false);
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_ANTENNA
+        );
+        SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "ROCKET_CPU", ClayTechItems.ROCKET_CPU,
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_CPU);
         SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "ROCKET_CONTROL_CORE", ClayTechItems.ROCKET_CONTROL_CORE,
-                "notresearch", 10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_CONTROL_CORE,
-                false);
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_CONTROL_CORE
+        );
         SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "ROCKET_FUEL_TANK", ClayTechItems.ROCKET_FUEL_TANK,
-                "notresearch", 10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_FUEL_TANK,
-                false);
-        SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "ROCKET_GLASS", ClayTechItems.ROCKET_GLASS, "notresearch",
-                10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_GLASS, false);
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_FUEL_TANK
+        );
+        SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "ROCKET_GLASS", ClayTechItems.ROCKET_GLASS,
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_GLASS);
         SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "ROCKET_STEEL_PLATE", ClayTechItems.ROCKET_STEEL_PLATE,
-                "notresearch", 10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_STEEL_PLATE,
-                false);
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.ROCKET_STEEL_PLATE
+        );
         SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "MIXED_ROCKET_FUEL", ClayTechItems.MIXED_ROCKET_FUEL,
-                "notresearch", 10, ClayTechRecipeType.CLAY_ROCKET_FUEL_GENERATOR,
-                ClayTechMachineRecipes.MIXED_ROCKET_FUEL, false);
+                ClayTechRecipeType.CLAY_ROCKET_FUEL_GENERATOR,
+                ClayTechMachineRecipes.MIXED_ROCKET_FUEL);
 
         Research rk1 = new Research(new NamespacedKey(ClayTech.getInstance(), "CLAYTECH_ROCKETS_1"), 9926,
                 Lang.readResearchesText("CLAYTECH_ROCKETS_I"), 85);
@@ -58,24 +58,24 @@ public class RocketMakings {
                 SlimefunItem.getByItem(ClayTechItems.MIXED_ROCKET_FUEL));
         rk1.register();
 
-        SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "OXYGEN_TANK", ClayTechItems.OXYGEN_TANK, "notresearch",
-                10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.OXYGEN_TANK, false);
+        SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "OXYGEN_TANK", ClayTechItems.OXYGEN_TANK,
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.OXYGEN_TANK);
         SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "SPACESUIT_OXYGEN_TANK",
-                ClayTechItems.SPACESUIT_OXYGEN_TANK, "notresearch", 10, ClayTechRecipeType.CLAY_CRAFTING_TABLE,
-                ClayTechMachineRecipes.SPACESUIT_OXYGEN_TANK, false);
+                ClayTechItems.SPACESUIT_OXYGEN_TANK, ClayTechRecipeType.CLAY_CRAFTING_TABLE,
+                ClayTechMachineRecipes.SPACESUIT_OXYGEN_TANK);
 
         SlimefunUtils.registerItem(ClayTechItems.C_ARMORS, "SPACESUIT_HELMET", ClayTechItems.SPACESUIT_HELMET,
-                "notresearch", 10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.SPACESUIT_HELMET,
-                false);
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.SPACESUIT_HELMET
+        );
         SlimefunUtils.registerItem(ClayTechItems.C_ARMORS, "SPACESUIT_CHESTPLATE", ClayTechItems.SPACESUIT_CHESTPLATE,
-                "notresearch", 10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.SPACESUIT_CHESTPLATE,
-                false);
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.SPACESUIT_CHESTPLATE
+        );
         SlimefunUtils.registerItem(ClayTechItems.C_ARMORS, "SPACESUIT_LEGGINGS", ClayTechItems.SPACESUIT_LEGGINGS,
-                "notresearch", 10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.SPACESUIT_LEGGINGS,
-                false);
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.SPACESUIT_LEGGINGS
+        );
         SlimefunUtils.registerItem(ClayTechItems.C_ARMORS, "SPACESUIT_BOOTS", ClayTechItems.SPACESUIT_BOOTS,
-                "notresearch", 10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.SPACESUIT_BOOTS,
-                false);
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.SPACESUIT_BOOTS
+        );
 
         Research ss1 = new Research(new NamespacedKey(ClayTech.getInstance(), "CLAYTECH_SPACESUIT_1"), 9927,
                 Lang.readResearchesText("CLAYTECH_SPACESUIT_I"), 55);
@@ -96,13 +96,13 @@ public class RocketMakings {
         ms1.register();
 
         SlimefunUtils.registerItem(ClayTechItems.C_OTHER, "PLANET_BASE_SIGNER", ClayTechItems.PLANET_BASE_SIGNER,
-                "notresearch", 10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.PLANET_BASE_SIGNER,
-                false);
-        SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "TUBE", ClayTechItems.TUBE, "notresearch", 10,
-                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.TUBE, false);
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.PLANET_BASE_SIGNER
+        );
+        SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "TUBE", ClayTechItems.TUBE,
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.TUBE);
         SlimefunUtils.registerItem(ClayTechItems.C_OTHER, "OXYGEN_DISTRIBUTER", ClayTechItems.OXYGEN_DISTRIBUTER,
-                "notresearch", 10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.OXYGEN_DISTRIBUTER,
-                false);
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.OXYGEN_DISTRIBUTER
+        );
 
         Research bs1 = new Research(new NamespacedKey(ClayTech.getInstance(), "CLAYTECH_BASE_1"), 9930,
                 Lang.readResearchesText("CLAYTECH_BASE_I"), 50);

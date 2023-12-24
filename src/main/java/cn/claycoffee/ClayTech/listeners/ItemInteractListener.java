@@ -1,7 +1,9 @@
 package cn.claycoffee.ClayTech.listeners;
 
+import cn.claycoffee.ClayTech.utils.ItemUtil;
 import cn.claycoffee.ClayTech.utils.Lang;
 import cn.claycoffee.ClayTech.utils.Utils;
+import cn.claycoffee.clayapi.utils.ListUtils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -11,8 +13,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 public class ItemInteractListener implements Listener {
     @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void BlockPlaceEvent(BlockPlaceEvent e) {
-        if (Utils.ExitsInList(Lang.readGeneralText("CantPlaceLore"), Utils.getLore(e.getItemInHand()))
-                && !e.isCancelled()) {
+        if (ListUtils.existsInStringList(ItemUtil.getLore(e.getItemInHand()), Lang.readGeneralText("CantPlaceLore"))) {
             e.setCancelled(true);
             e.getPlayer().sendMessage(Lang.readGeneralText("CantPlace"));
         }
@@ -23,7 +24,7 @@ public class ItemInteractListener implements Listener {
     public void PlayerInteractEvent(PlayerInteractEvent e) {
         if (e.hasItem()) {
             if (e.getItem().hasItemMeta() && !e.isCancelled()) {
-                if (Utils.ExitsInList(Lang.readGeneralText("CantEat"), Utils.getLore(e.getItem()))) {
+                if (ListUtils.existsInStringList(ItemUtil.getLore(e.getItem()), Lang.readGeneralText("CantEat"))) {
                     e.getPlayer().sendMessage(Lang.readGeneralText("CantEatMessage"));
                     e.setCancelled(true);
                     return;
@@ -32,7 +33,6 @@ public class ItemInteractListener implements Listener {
                         && e.hasBlock()) {
                     e.getPlayer().sendMessage(Lang.readGeneralText("CantInteractMessage"));
                     e.setCancelled(true);
-                    return;
                 }
             }
         }

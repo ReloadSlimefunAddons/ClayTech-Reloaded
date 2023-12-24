@@ -8,19 +8,12 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.LockedItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-
 import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class CraftingTable extends ACraftingTable {
-    private static Map<Block, ItemStack[]> inputItem = new HashMap<>();
-    private static Map<Block, ItemStack> outputItem = new HashMap<>();
 
-    public CraftingTable(LockedItemGroup category, SlimefunItemStack item, String id, RecipeType recipeType,
+    public CraftingTable(LockedItemGroup category, SlimefunItemStack item, RecipeType recipeType,
                          ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
     }

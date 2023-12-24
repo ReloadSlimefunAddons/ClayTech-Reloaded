@@ -5,6 +5,7 @@ import cn.claycoffee.ClayTech.ClayTechBiomes;
 import cn.claycoffee.ClayTech.api.Planet;
 import com.wimbli.WorldBorder.BorderData;
 import com.wimbli.WorldBorder.Config;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -101,7 +102,7 @@ public class PlanetUtils {
 
     public static String booleanToString(boolean b) {
 
-        if (b == true) {
+        if (b) {
             return Lang.readGeneralText("Yes_1");
         } else {
             return Lang.readGeneralText("No_1");
@@ -111,11 +112,11 @@ public class PlanetUtils {
     public static int getTotalPage() {
         if (ClayTech.getPlanets().size() > 21) {
             if (ClayTech.getPlanets().size() % 21 >= 1) {
-                return (int) (ClayTech.getPlanets().size() / 21);
+                return ClayTech.getPlanets().size() / 21;
             } else {
-                return ((int) ClayTech.getPlanets().size() / 21) + 1;
+                return (ClayTech.getPlanets().size() / 21) + 1;
             }
-        } else if (ClayTech.getPlanets().size() >= 1) {
+        } else if (!ClayTech.getPlanets().isEmpty()) {
             return 1;
         }
         return 0;
@@ -126,19 +127,16 @@ public class PlanetUtils {
         int c = 0;
 
         // 排列星球
-        List<Planet> pl = new ArrayList<Planet>();
-        for (Planet p : ClayTech.getPlanets()) {
-            pl.add(p);
-        }
-        Planet[] pl2 = pl.toArray(new Planet[pl.size()]);
-        List<Integer> d = new ArrayList<Integer>();
+        List<Planet> pl = new ArrayList<>(ClayTech.getPlanets());
+        Planet[] pl2 = pl.toArray(new Planet[0]);
+        List<Integer> d = new ArrayList<>();
         for (Planet p : pl2) {
-            d.add((Integer) PlanetUtils.getDistance(current, p));
+            d.add(PlanetUtils.getDistance(current, p));
         }
-        Integer[] distance = d.toArray(new Integer[d.size()]);
+        Integer[] distance = d.toArray(new Integer[0]);
         for (int i = 0; i < distance.length; i++) {
             for (int j = 0; j < distance.length - i - 1; j++) {
-                if (distance[j].intValue() > distance[j + 1].intValue()) {
+                if (distance[j] > distance[j + 1]) {
                     int temp = distance[j + 1];
                     distance[j + 1] = distance[j];
                     distance[j] = temp;
@@ -156,7 +154,7 @@ public class PlanetUtils {
             if (c > (currentPage - 1) * 21 && c <= currentPage * 21) {
                 v++;
                 ItemStack di = each.getDisplayStack();
-                di = Utils.setLoreList(di, new String[]{
+                di = ItemUtil.setLore(di, new String[]{
                         Lang.readMachinesText("DISTANCE_TO_PLANET").replaceAll("%ly%",
                                 "" + PlanetUtils.getDistance(current, each)),
                         Lang.readMachinesText("FUEL_TO_PLANET").replaceAll("%fuel%",
@@ -174,16 +172,16 @@ public class PlanetUtils {
         int totalPage = PlanetUtils.getTotalPage();
         if (currentPage == 1) {
             Preset.setItem(46,
-                    Utils.newItemD(Material.LIME_STAINED_GLASS_PANE, Lang.readMachinesText("PREVIOUS_PAGE_CANT_USE")));
+                    new CustomItemStack(Material.LIME_STAINED_GLASS_PANE, Lang.readMachinesText("PREVIOUS_PAGE_CANT_USE")));
         } else {
-            Preset.setItem(46, Utils.newItemD(Material.LIME_STAINED_GLASS_PANE,
+            Preset.setItem(46, new CustomItemStack(Material.LIME_STAINED_GLASS_PANE,
                     Lang.readMachinesText("PREVIOUS_PAGE") + " (" + (currentPage - 1) + "/" + totalPage + ")"));
         }
         if (currentPage == totalPage) {
             Preset.setItem(52,
-                    Utils.newItemD(Material.LIME_STAINED_GLASS_PANE, Lang.readMachinesText("NEXT_PAGE_CANT_USE")));
+                    new CustomItemStack(Material.LIME_STAINED_GLASS_PANE, Lang.readMachinesText("NEXT_PAGE_CANT_USE")));
         } else {
-            Preset.setItem(52, Utils.newItemD(Material.LIME_STAINED_GLASS_PANE,
+            Preset.setItem(52, new CustomItemStack(Material.LIME_STAINED_GLASS_PANE,
                     Lang.readMachinesText("NEXT_PAGE") + "(" + (currentPage + 1) + "/" + totalPage + ")"));
         }
         return Preset;
@@ -195,20 +193,10 @@ public class PlanetUtils {
                 return ClayTechBiomes.RIVER;
             if (hasLava)
                 return ClayTechBiomes.LAVA_RIVER;
-            if (hasRiver && hasLava) {
-                if (hasCrater) {
-                    return ClayTechBiomes.LAVA_RIVER;
-                } else {
-                    if (height <= 39)
-                        return ClayTechBiomes.LAVA_RIVER;
-                    else
-                        return ClayTechBiomes.CRATER;
-                }
-            }
             if (hasCrater)
                 return ClayTechBiomes.CRATER;
             return ClayTechBiomes.PLAIN;
-        } else if (height > 62 && height <= 71)
+        } else if (height <= 71)
             return ClayTechBiomes.PLAIN;
         else if (height > 72)
             return ClayTechBiomes.MOUNTAIN;

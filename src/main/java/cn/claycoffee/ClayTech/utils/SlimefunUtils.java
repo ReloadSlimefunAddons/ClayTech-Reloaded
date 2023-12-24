@@ -5,8 +5,10 @@ import cn.claycoffee.ClayTech.ClayTechItems;
 import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import io.github.thebusybiscuit.slimefun4.api.geo.GEOResource;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemHandler;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.groups.LockedItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
@@ -63,7 +65,7 @@ public class SlimefunUtils {
         if (StorageCacheUtils.hasBlock(plate.getLocation()) && StorageCacheUtils.getData(plate.getLocation(), "wait-time") != null)
             waitTime = Integer.parseInt(StorageCacheUtils.getData(plate.getLocation(), "wait-time"));
         if (BlockStorage.checkID(a1) != null && BlockStorage.checkID(a1).equals("CLAY_AIR_LOCK_BLOCK")) {
-            List<Block> block = new ArrayList<Block>();
+            List<Block> block = new ArrayList<>();
             List<Block> blocks = new ArrayList<>();
             int[] range = new int[]{0, 1, 2, 3, 4};
             if (face == BlockFace.NORTH || face == BlockFace.SOUTH) {
@@ -86,9 +88,7 @@ public class SlimefunUtils {
                     }
                 }
                 if (l > 0) {
-                    for (Block b : block) {
-                        blocks.add(b);
-                    }
+                    blocks.addAll(block);
                     for (Block b : block) {
                         for (int i = 1; i < l; i++) {
                             Block a2 = b.getRelative(BlockFace.UP, i);
@@ -118,9 +118,7 @@ public class SlimefunUtils {
                     }
                 }
                 if (l > 0) {
-                    for (Block b : block) {
-                        blocks.add(b);
-                    }
+                    blocks.addAll(block);
                     for (Block b : block) {
                         for (int i = 1; i < l; i++) {
                             Block a2 = b.getRelative(BlockFace.UP, i);
@@ -156,6 +154,17 @@ public class SlimefunUtils {
     public static void registerItem(ItemGroup category, String name, ItemStack[] recipe, RecipeType recipetype, ItemStack MaterialStack) {
         SlimefunItemStack si = new SlimefunItemStack(name, MaterialStack);
         SlimefunItem item = new SlimefunItem(category, si, recipetype, recipe);
+        category.add(item);
+        category.register(ClayTech.getInstance());
+    }
+
+    public static void registerItem(ItemGroup category, String id, ItemStack stack, RecipeType recipeType, ItemStack[] recipe) {
+        registerItem(category, id, recipe, recipeType, stack);
+    }
+
+    public static void registerItem(ItemGroup category, SlimefunItemStack stack, RecipeType recipeType, ItemStack[] recipe, ItemHandler[] itemHandlers) {
+        SlimefunItem item = new SlimefunItem(category, stack, recipeType, recipe);
+        item.addItemHandler(itemHandlers);
         category.add(item);
         category.register(ClayTech.getInstance());
     }

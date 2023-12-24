@@ -1,8 +1,8 @@
-package cn.claycoffee.ClayTech.implementation.Planets.populators;
+package cn.claycoffee.ClayTech.implementation.Planets.populators.moon;
 
 import cn.claycoffee.ClayTech.ClayTech;
 import cn.claycoffee.ClayTech.ClayTechItems;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Chunk;
 import org.bukkit.Material;
@@ -32,9 +32,9 @@ public class MoonKreepPopulator extends BlockPopulator {
                 Block sourceb = source.getBlock(x, y, z);
                 while (count <= 3 || random.nextDouble() < 0.8D && count <= 6) {
                     if (sourceb.getType() == Material.STONE) {
-                        if (!SlimefunPlugin.getRegistry().getWorlds().containsKey(world.getName())) {
+                        if (!Slimefun.getRegistry().getWorlds().containsKey(world.getName())) {
                             BlockStorage bs = new BlockStorage(world);
-                            SlimefunPlugin.getRegistry().getWorlds().put(world.getName(), bs);
+                            Slimefun.getRegistry().getWorlds().put(world.getName(), bs);
                         }
                         if (BlockStorage.hasBlockInfo(sourceb.getLocation())) return;
                         new BukkitRunnable() {

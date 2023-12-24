@@ -9,6 +9,7 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.World.Environment;
 import org.bukkit.block.Biome;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public class ClayFuel implements GEOResource {
     private final NamespacedKey key = new NamespacedKey(ClayTech.getInstance(), "CLAY_FUEL");
@@ -18,12 +19,12 @@ public class ClayFuel implements GEOResource {
     }
 
     @Override
-    public NamespacedKey getKey() {
+    public @NotNull NamespacedKey getKey() {
         return key;
     }
 
     @Override
-    public int getDefaultSupply(Environment environment, Biome biome) {
+    public int getDefaultSupply(@NotNull Environment environment, @NotNull Biome biome) {
         if (environment == Environment.NORMAL && biome == Biome.THE_END) {
             return 12;
         } else if (environment == Environment.NORMAL) {
@@ -41,12 +42,12 @@ public class ClayFuel implements GEOResource {
     }
 
     @Override
-    public String getName() {
+    public @NotNull String getName() {
         return Lang.readResourcesText("CLAY_FUEL");
     }
 
     @Override
-    public ItemStack getItem() {
+    public @NotNull ItemStack getItem() {
         return ClayTechItems.CLAY_FUEL.clone();
     }
 

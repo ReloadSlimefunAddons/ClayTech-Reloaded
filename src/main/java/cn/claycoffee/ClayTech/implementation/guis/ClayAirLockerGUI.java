@@ -1,11 +1,10 @@
 package cn.claycoffee.ClayTech.implementation.guis;
 
-import cn.claycoffee.ClayTech.api.exceptions.AlreadyProtectedException;
-import cn.claycoffee.ClayTech.handlers.MenuClickHandler;
-import cn.claycoffee.ClayTech.objects.gui.BlockGUI;
 import cn.claycoffee.ClayTech.utils.Lang;
-import cn.claycoffee.ClayTech.utils.Utils;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import cn.claycoffee.clayapi.guis.GUI;
+import cn.claycoffee.clayapi.handlers.MenuClickHandler;
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -20,57 +19,58 @@ import org.bukkit.inventory.ItemStack;
  * AGPL 3.0
  */
 
-public class ClayAirLockerGUI extends BlockGUI {
-    private static int[] border = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26};
-    private Block b = block;
+public class ClayAirLockerGUI extends GUI {
+    private static final int[] border = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26};
+    private final Block b;
 
     public ClayAirLockerGUI(int size, String title, boolean isProtected, Block b) {
-        super(size, title, isProtected, b);
+        super(size, title, isProtected);
+        
+        this.b = b;
     }
+
 
     @Override
     public void init() {
         try {
             this.registerBlockHandler(new MenuClickHandler(this, new int[]{11, 15}) {
                 @Override
-                public void onLeftClick(Player player, int i) {
-                    int waitTime = new Integer(BlockStorage.getLocationInfo(b.getLocation()).getString("wait-time")).intValue();
+                public void onLeftClick(Player player, int i, Inventory inv) {
+                    int waitTime = Integer.parseInt(StorageCacheUtils.getData(b.getLocation(), "wait-time"));
                     if (i == 11) {
                         if (waitTime <= 1) return;
                         waitTime--;
-                        BlockStorage.addBlockInfo(b.getLocation(), "wait-time", waitTime + "");
-                        show(player);
                     } else {
                         waitTime++;
-                        BlockStorage.addBlockInfo(b.getLocation(), "wait-time", waitTime + "");
-                        show(player);
                     }
+                    StorageCacheUtils.setData(b.getLocation(), "wait-time", waitTime + "");
+                    show(player);
                 }
 
                 @Override
-                public void onRightClick(Player player, int i) {
+                public void onRightClick(Player player, int i, Inventory inventory) {
 
                 }
+
             });
-        } catch (AlreadyProtectedException e) {
+        } catch (cn.claycoffee.clayapi.exceptions.AlreadyProtectedException e) {
             e.printStackTrace();
         }
     }
 
-
     @Override
-    public void setupBlockMenu(Inventory inventory, Player player, Block b) {
+    public void setupMenu(Inventory inventory, Player player) {
         if (this.b != null) {
             int waitTime = 5;
-            if (BlockStorage.getLocationInfo(b.getLocation()) != null && BlockStorage.getLocationInfo(b.getLocation()).getString("wait-time") != null) {
-                waitTime = new Integer(BlockStorage.getLocationInfo(b.getLocation()).getString("wait-time")).intValue();
+            if (StorageCacheUtils.hasBlock(b.getLocation()) && StorageCacheUtils.getData(b.getLocation(), "wait-time") != null) {
+                waitTime = Integer.parseInt(StorageCacheUtils.getData(b.getLocation(), "wait-time"));
             } else {
-                BlockStorage.addBlockInfo(b.getLocation(), "wait-time", waitTime + "");
+                StorageCacheUtils.setData(b.getLocation(), "wait-time", waitTime + "");
             }
-            ItemStack borderItem = Utils.newItemD(Material.BLUE_STAINED_GLASS_PANE, Lang.readMachinesText("SPLIT_LINE"));
-            ItemStack waitTimeItem = Utils.newItemD(Material.CLOCK, Lang.readMachinesText("wait-time").replaceAll("%TIME%", waitTime + ""));
-            ItemStack add = Utils.newItemD(Material.GREEN_STAINED_GLASS_PANE, Lang.readMachinesText("add"));
-            ItemStack sub = Utils.newItemD(Material.RED_STAINED_GLASS_PANE, Lang.readMachinesText("sub"));
+            ItemStack borderItem = new CustomItemStack(Material.BLUE_STAINED_GLASS_PANE, Lang.readMachinesText("SPLIT_LINE"));
+            ItemStack waitTimeItem = new CustomItemStack(Material.CLOCK, Lang.readMachinesText("wait-time").replaceAll("%TIME%", waitTime + ""));
+            ItemStack add = new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, Lang.readMachinesText("add"));
+            ItemStack sub = new CustomItemStack(Material.RED_STAINED_GLASS_PANE, Lang.readMachinesText("sub"));
             for (int i : border) {
                 inventory.setItem(i, borderItem);
             }
@@ -79,6 +79,7 @@ public class ClayAirLockerGUI extends BlockGUI {
             inventory.setItem(13, waitTimeItem);
         }
     }
+
 
     @Override
     public String getID() {

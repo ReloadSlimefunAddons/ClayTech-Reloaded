@@ -27,9 +27,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class EffectItems {
     public EffectItems() {
-        SlimefunUtils.registerItem(ClayTechItems.C_TOOLS, "TNT_EXPLOSION_CREATER", ClayTechItems.TNT_EXPLOSION_CREATER,
-                "notresearch", 10, ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.TNT_EXPLOSION_CREATER,
-                false, new ItemHandler[]{new ItemUseHandler() {
+        SlimefunUtils.registerItem(ClayTechItems.C_TOOLS, ClayTechItems.TNT_EXPLOSION_CREATER,
+                ClayTechRecipeType.CLAY_CRAFTING_TABLE, ClayTechMachineRecipes.TNT_EXPLOSION_CREATER,
+                new ItemHandler[]{new ItemUseHandler() {
                     @Override
                     public void onRightClick(PlayerRightClickEvent e) {
                         Bukkit.getPluginManager().callEvent(new PlayerUseItemEvent(e.getPlayer(), e.getItem()));

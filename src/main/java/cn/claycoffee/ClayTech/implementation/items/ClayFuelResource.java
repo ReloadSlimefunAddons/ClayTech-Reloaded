@@ -6,7 +6,7 @@ import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 
 public class ClayFuelResource {
     public ClayFuelResource() {
-        SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "CLAY_FUEL", ClayTechItems.CLAY_FUEL, "notresearch", 10,
-                RecipeType.GEO_MINER, ClayTechItems.NORECIPE, false);
+        SlimefunUtils.registerItem(ClayTechItems.C_MATERIALS, "CLAY_FUEL", ClayTechItems.CLAY_FUEL,
+                RecipeType.GEO_MINER, ClayTechItems.NORECIPE);
     }
 }

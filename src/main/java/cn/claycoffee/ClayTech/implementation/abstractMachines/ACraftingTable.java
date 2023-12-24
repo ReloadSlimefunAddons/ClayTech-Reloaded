@@ -47,7 +47,6 @@ public abstract class ACraftingTable extends SlimefunItem implements InventoryBl
     protected static final int[] inputSlots = new int[]{19, 20, 21, 28, 29, 30, 37, 38, 39};
     protected static final int[] outputSlots = new int[]{34};
     protected static final Map<Block, MachineRecipe> processing = new HashMap<>();
-    protected static final Map<Block, Integer> progress = new HashMap<>();
     private static final int[] BORDER = {0, 1, 2, 3, 5, 6, 7, 8, 14, 15, 16, 17, 23, 41, 43, 50, 51, 52, 53, 32};
     private static final int[] BORDER_IN = {9, 10, 11, 12, 13, 18, 22, 27, 31, 36, 40, 45, 46, 47, 48, 49};
     private static final int[] BORDER_OUT = {24, 25, 26, 33, 35, 42, 43, 44};

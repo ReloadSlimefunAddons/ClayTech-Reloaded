@@ -14,15 +14,14 @@ import org.bukkit.event.vehicle.VehicleMoveEvent;
 public class RailwayListener implements Listener {
     @EventHandler
     public void VehicleMoveEvent(VehicleMoveEvent e) {
-        if (e.getVehicle() instanceof Minecart) {
-            Minecart ve = (Minecart) e.getVehicle();
+        if (e.getVehicle() instanceof Minecart ve) {
             World veworld = ve.getWorld();
             Location veloc = ve.getLocation();
             Block rail = veworld.getBlockAt(veloc);
             if (rail.getBlockData().getMaterial() == Material.POWERED_RAIL) {
                 if (BlockStorage.checkID(rail) != null) {
                     if (BlockStorage.checkID(rail).equalsIgnoreCase("CLAY_HIGHSPEED_RAILWAY")) {
-                        ve.setMaxSpeed(0.4d * new Integer(ClayTech.getHighRailSpeed()).doubleValue());
+                        ve.setMaxSpeed(0.4d * Integer.parseInt(ClayTech.getHighRailSpeed()));
                     } else {
                         ve.setMaxSpeed(0.4d);
                     }

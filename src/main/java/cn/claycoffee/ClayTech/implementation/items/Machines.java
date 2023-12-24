@@ -93,28 +93,30 @@ public class Machines {
                 ClayTechItems.CLAY_SPACESUIT_OXYGEN_INJECTOR);
         SlimefunItemStack cobblestonegenerator = new SlimefunItemStack("CLAY_COBBLESTONE_GENERATOR",
                 ClayTechItems.CLAY_COBBLESTONE_GENERATOR);
+        /*
         SlimefunItemStack electricwaterpump = new SlimefunItemStack("CLAY_ELECTRIC_WATER_PUMP",
                 ClayTechItems.CLAY_ELECTRIC_WATER_PUMP);
+         */
+
         SlimefunItemStack electriccopier = new SlimefunItemStack("CLAY_ELECTRIC_COPIER",
                 ClayTechItems.CLAY_ELECTRIC_COPIER);
         SlimefunItemStack witherkiller = new SlimefunItemStack("CLAY_WITHER_KILLER",
                 ClayTechItems.CLAY_WITHER_KILLER);
 
-        new CraftingTable(ClayTechItems.C_MACHINES, craftingtable, "CLAY_CRAFTING_TABLE",
+        new CraftingTable(ClayTechItems.C_MACHINES, craftingtable,
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClayCrafingTable).register(ClayTech.getInstance());
-        new ElectricStoneCrusher(ClayTechItems.C_MACHINES, electricstonecrusher, "CLAY_ELECTRIC_STONE_CRUSHER",
+        new ElectricStoneCrusher(ClayTechItems.C_MACHINES, electricstonecrusher,
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClayStoneCrusher).register(ClayTech.getInstance());
-        new FoodCauldron(ClayTechItems.C_MACHINES, foodcauldron, "CLAY_FOOD_CAULDRON",
-                RecipeType.ENHANCED_CRAFTING_TABLE, ClayFoodCauldron).register(ClayTech.getInstance());
-        new FoodChalkingMachine(ClayTechItems.C_MACHINES, chalkingmachine, "CLAY_FOOD_CHALKING_MACHINE",
+        new FoodCauldron(ClayTechItems.C_MACHINES, foodcauldron, RecipeType.ENHANCED_CRAFTING_TABLE, ClayFoodCauldron).register(ClayTech.getInstance());
+        new FoodChalkingMachine(ClayTechItems.C_MACHINES, chalkingmachine,
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClayChalkingMachine).register(ClayTech.getInstance());
-        new ElementExtracter(ClayTechItems.C_MACHINES, elementextracter, "CLAY_ELEMENT_EXTRACTER",
+        new ElementExtracter(ClayTechItems.C_MACHINES, elementextracter,
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClayElementExtracter).register(ClayTech.getInstance());
-        new ExperimentTableNormal(ClayTechItems.C_MACHINES, experimenttablebasic, "CLAY_EXPERIMENT_TABLE_BASIC",
+        new ExperimentTableNormal(ClayTechItems.C_MACHINES, experimenttablebasic,
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClayExperimentTableBasic).register(ClayTech.getInstance());
         new RocketAssemblingMachine(ClayTechItems.C_MACHINES, rocketassemblingmachine,
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClayRocketAssemblingMachine).register(ClayTech.getInstance());
-        new RocketFuelGenerator(ClayTechItems.C_MACHINES, rocketfuelgenerator, "CLAY_ROCKET_FUEL_GENERATOR",
+        new RocketFuelGenerator(ClayTechItems.C_MACHINES, rocketfuelgenerator,
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClayRocketFuelGenerator).register(ClayTech.getInstance());
         new RocketFuelInjector(ClayTechItems.C_MACHINES, rocketfuelinjector,
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClayRocketFuelInjector).register(ClayTech.getInstance());
@@ -122,11 +124,14 @@ public class Machines {
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClaySpaceSuitOxygenInjector).register(ClayTech.getInstance());
         new CobbleStoneGenerator(ClayTechItems.C_MACHINES, cobblestonegenerator, "CLAY_COBBLESTONE_GENERATOR",
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClayCobbleStoneGenerator).register(ClayTech.getInstance());
+        /*
         new ElectricWaterPump(ClayTechItems.C_MACHINES, electricwaterpump, "CLAY_ELECTRIC_WATER_PUMP",
-                RecipeType.ENHANCED_CRAFTING_TABLE, ClayElectricWaterPump).register(ClayTech.getInstance());
-        new ClayElectricCopier(ClayTechItems.C_MACHINES, electriccopier, "CLAY_ELECTRIC_COPIER",
+        RecipeType.ENHANCED_CRAFTING_TABLE, ClayElectricWaterPump).register(ClayTech.getInstance());
+         */
+
+        new ClayElectricCopier(ClayTechItems.C_MACHINES, electriccopier,
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClayElectricCopier).register(ClayTech.getInstance());
-        new WitherKiller(ClayTechItems.C_MACHINES, witherkiller, "CLAY_WITHER_KILLER",
+        new WitherKiller(ClayTechItems.C_MACHINES, witherkiller,
                 RecipeType.ENHANCED_CRAFTING_TABLE, ClayWitherKiller).register(ClayTech.getInstance());
     }
 }

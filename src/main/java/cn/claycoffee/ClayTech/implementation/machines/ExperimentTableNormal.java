@@ -4,15 +4,15 @@ import cn.claycoffee.ClayTech.ClayTechItems;
 import cn.claycoffee.ClayTech.ClayTechMachineRecipes;
 import cn.claycoffee.ClayTech.implementation.abstractMachines.AExperimentTable;
 import cn.claycoffee.ClayTech.utils.Lang;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 public class ExperimentTableNormal extends AExperimentTable {
 
-    public ExperimentTableNormal(Category category, SlimefunItemStack item, RecipeType recipeType,
+    public ExperimentTableNormal(ItemGroup category, SlimefunItemStack item, RecipeType recipeType,
                                  ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
     }

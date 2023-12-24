@@ -1,8 +1,7 @@
-package cn.claycoffee.ClayTech.implementation.Planets.populators;
+package cn.claycoffee.ClayTech.implementation.Planets.populators.moon;
 
 import cn.claycoffee.ClayTech.ClayTech;
-import cn.claycoffee.ClayTech.ClayTechItems;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Chunk;
 import org.bukkit.Material;
@@ -10,11 +9,11 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.generator.BlockPopulator;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.eclipse.jdt.annotation.NonNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Random;
 
-public class MoonCopperOrePopulator extends BlockPopulator {
+public class MoonDiamondPopulator extends BlockPopulator {
 
     @Override
     public void populate(@NonNull World world, @NonNull Random random, @NonNull Chunk source) {
@@ -22,30 +21,28 @@ public class MoonCopperOrePopulator extends BlockPopulator {
 
             @Override
             public void run() {
-                int tryc = 5 + random.nextInt(4);
+                int tryc = 3 + random.nextInt(2);
                 for (int i = 0; i < tryc; i++) {
                     int x = random.nextInt(16);
                     int y = random.nextInt(100) + 1;
                     int z = random.nextInt(16);
                     int count = 0;
-                    while (count <= 5 || random.nextDouble() < 0.92D && count <= 8) {
+                    while (count <= 7 || random.nextDouble() < 0.9D && count <= 12) {
                         final int tx = x;
                         final int ty = y;
                         final int tz = z;
                         Block sourceb = source.getBlock(x, y, z);
                         if (sourceb.getType() == Material.STONE) {
-                            if (!SlimefunPlugin.getRegistry().getWorlds().containsKey(world.getName())) {
+                            if (!Slimefun.getRegistry().getWorlds().containsKey(world.getName())) {
                                 BlockStorage bs = new BlockStorage(world);
-                                SlimefunPlugin.getRegistry().getWorlds().put(world.getName(), bs);
+                                Slimefun.getRegistry().getWorlds().put(world.getName(), bs);
                             }
                             if (BlockStorage.hasBlockInfo(sourceb.getLocation())) return;
                             new BukkitRunnable() {
 
                                 @Override
                                 public void run() {
-                                    source.getBlock(tx, ty, tz).setType(ClayTechItems.COPPER_ORE.getType(), false);
-                                    BlockStorage.addBlockInfo(source.getBlock(tx, ty, tz), "id", "COPPER_ORE",
-                                            true);
+                                    source.getBlock(tx, ty, tz).setType(Material.DIAMOND_ORE, false);
 
                                 }
 
@@ -74,13 +71,11 @@ public class MoonCopperOrePopulator extends BlockPopulator {
                                 break;
                         }
                     }
-
                 }
 
             }
 
         }.runTaskAsynchronously(ClayTech.getInstance());
-
     }
 
 }
